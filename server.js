@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(logger("dev"));
 
-app.use(express.static("public"));
+app.use(express.static("html"));
 
 
 db.sequelize.sync({ force: true }).then(function() {
