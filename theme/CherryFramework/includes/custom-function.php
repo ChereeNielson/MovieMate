@@ -1,3 +1,0 @@
-<?php
-	// Other theme functions
-?>
