@@ -1,0 +1,47 @@
+const db = require("../models");
+
+module.exports = {
+  findAll: function(req, res) {
+    db.Users
+      .findAll(req.query)
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => res.status(422).json(err));
+  },
+  findById: function(req, res) {
+    db.Users
+      .findOne({where: {email: req.params.email}})
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => res.status(422).json(err));
+  },
+  create: function(req, res) {
+    db.Users
+      .create(req.body)
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Users
+      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => res.status(422).json(err));
+  },
+  remove: function(req, res) {
+    db.Users
+      .destroy({where: {email: req.params.email}})
+      .then(dbUsers => res.json(dbUsers))
+      .catch(err => res.status(422).json(err));
+  },
+  auth: function(req, res){
+      db.Users
+      .findOne({where: {
+          email: req.params.email
+      }})
+      .then(function(dbUsers) {
+          console.log("database password "+ dbUsers.password)
+          console.log("user supplied password " + req.body.password)
+          if (dbUsers.password === req.body.password){
+        res.send("Authenticated");
+          } else res.send("Not Authenticated")
+      });
+  }
+};
