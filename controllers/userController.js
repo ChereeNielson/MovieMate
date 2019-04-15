@@ -3,13 +3,13 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     db.Users
-      .findAll(req.query)
+      .findAll({attributes: { exclude: ['password']}})
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
     db.Users
-      .findOne({where: {email: req.params.email}})
+      .findOne({attributes: { exclude: ['password']}, where: {email: req.params.email}})
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
