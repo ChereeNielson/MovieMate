@@ -21,7 +21,7 @@ module.exports = {
   },
   update: function(req, res) {
     db.Users
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .update(req.body, {where: {email: req.params.email }})
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
