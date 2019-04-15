@@ -7,7 +7,10 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Users.findOne({ attributes: { exclude: ["password"] }, where: { email: req.params.email } })
+    db.Users.findOne({
+      attributes: { exclude: ["password"] },
+      where: { email: req.params.email }
+    })
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
