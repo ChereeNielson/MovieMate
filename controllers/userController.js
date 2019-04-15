@@ -9,7 +9,7 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Users
-      .findOne({attributes: { exclude: ['password']}, where: {email: req.params.email}})
+      .findOne({attributes: { exclude: ['']}, where: {email: req.params.email}})
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
@@ -37,9 +37,14 @@ module.exports = {
           email: req.params.email
       }})
       .then(function(dbUsers) {
-          if (dbUsers.password === req.body.password){
-        res.send("Authenticated");
-          } else res.send("Not Authenticated")
+        if (!dbUsers) {
+          res.send("No User Found")
+          }
+        else if (!dbUsers.validPassword(req.body.password)) {
+          res.send("Incorrect Password")
+        } else {
+        res.send("Authenticated")
+        }
       });
   }
 };
