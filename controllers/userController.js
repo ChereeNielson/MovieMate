@@ -37,8 +37,6 @@ module.exports = {
           email: req.params.email
       }})
       .then(function(dbUsers) {
-          console.log("database password "+ dbUsers.password)
-          console.log("user supplied password " + req.body.password)
           if (dbUsers.password === req.body.password){
         res.send("Authenticated");
           } else res.send("Not Authenticated")
