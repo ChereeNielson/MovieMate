@@ -9,7 +9,7 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Users
-      .findOne({attributes: { exclude: ['']}, where: {email: req.params.email}})
+      .findOne({attributes: { exclude: ['password']}, where: {email: req.params.email}})
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   },
