@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 const db = require("./models");
 const logger = require("morgan");
 const routes = require("./routes");
@@ -16,7 +16,7 @@ app.use(express.static("html"));
 app.options("*", cors());
 app.use(routes);
 
-db.sequelize.sync({ force: false }).then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
   });
