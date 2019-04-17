@@ -7,23 +7,22 @@ module.exports = {
         {
           model: db.Users,
           as: "Followee",
-          attributes: { exclude: ["password"] }
-        },
-        { model: db.Users, as: "User", attributes: { exclude: ["password"] } }
+          attributes: { exclude: ["password", "createdAt", "updatedAt"] }
+        }
       ],
       where: { UserId: req.params.id }
     })
-      .then(dbUsers => res.json(dbUsers))
+      .then(dbFriends => res.json(dbFriends))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Users.create(req.body)
-      .then(dbUsers => res.json(dbUsers))
+    db.Friends.create(req.body)
+      .then(dbFriends => res.json(dbFriends))
       .catch(err => res.status(422).json(err));
   },
 
   remove: function(req, res) {
-    db.Users.destroy({ where: { email: req.params.email } })
+    db.Users.destroy({ where: { UserId: req.params.id } })
       .then(dbUsers => res.json(dbUsers))
       .catch(err => res.status(422).json(err));
   }
