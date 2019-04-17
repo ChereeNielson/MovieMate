@@ -4,7 +4,7 @@ require("dotenv").config();
 module.exports = {
   findAll: function(req, res) {
     axios({
-      method: "post",
+      method: "get",
       url:
         "http://www.omdbapi.com/?apikey=" +
         process.env.OMDB_API +
@@ -20,7 +20,7 @@ module.exports = {
   },
   findById: function(req, res) {
     axios({
-      method: "post",
+      method: "get",
       url:
         "http://www.omdbapi.com/?apikey=" +
         process.env.OMDB_API +
