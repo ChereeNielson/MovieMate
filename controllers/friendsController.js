@@ -6,7 +6,7 @@ module.exports = {
       include: [
         {
           model: db.Users,
-          as: "followee",
+          as: "Followee",
           attributes: { exclude: ["password", "createdAt", "updatedAt"] }
         }
       ],

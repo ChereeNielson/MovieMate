@@ -4,19 +4,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER(11),
       allowNull: false
     },
-    followedId: {
+    FollowedId: {
       type: DataTypes.INTEGER(11),
       allowNull: false
     }
   });
   Friends.associate = function(models) {
     Friends.belongsTo(models.Users, {
-      foreignKey: "followedId",
-      as: "followee"
+      foreignKey: "FollowedId",
+      as: "Followee"
     });
     Friends.belongsTo(models.Users, {
       foreignKey: "UserId",
-      as: "user"
+      as: "User"
     });
   };
 
