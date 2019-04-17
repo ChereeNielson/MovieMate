@@ -6,11 +6,11 @@ module.exports = {
       include: [
         {
           model: db.Users,
-          as: "Followee",
+          as: "followee",
           attributes: { exclude: ["password", "createdAt", "updatedAt"] }
         }
       ],
-      where: { UserId: req.params.id }
+      where: { userId: req.params.id }
     })
       .then(dbFriends => res.json(dbFriends))
       .catch(err => res.status(422).json(err));

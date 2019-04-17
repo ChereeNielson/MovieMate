@@ -1,22 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
   let Friends = sequelize.define("Friends", {
-    UserId: {
+    userId: {
       type: DataTypes.INTEGER(11),
       allowNull: false
     },
-    FollowedId: {
+    followedId: {
       type: DataTypes.INTEGER(11),
       allowNull: false
     }
   });
   Friends.associate = function(models) {
     Friends.belongsTo(models.Users, {
-      foreignKey: "FollowedId",
-      as: "Followee"
+      foreignKey: "followedId",
+      as: "followee"
     });
     Friends.belongsTo(models.Users, {
-      foreignKey: "UserId",
-      as: "User"
+      foreignKey: "userId",
+      as: "user"
     });
   };
 
