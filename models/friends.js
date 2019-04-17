@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   let Friends = sequelize.define("Friends", {
-    userId: {
+    UserId: {
       type: DataTypes.INTEGER(11),
       allowNull: false
     },
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       as: "followee"
     });
     Friends.belongsTo(models.Users, {
-      foreignKey: "userId",
+      foreignKey: "UserId",
       as: "user"
     });
   };
