@@ -42,7 +42,15 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Users.associate = function(models) {
-    Users.hasMany(models.Friends);
+    Users.hasMany(models.Friends, {
+      onDelete: "cascade"
+    });
+  };
+
+  Users.associate = function(models) {
+    Users.hasMany(models.Watchlist, {
+      onDelete: "cascade"
+    });
   };
 
   Users.prototype.validPassword = function(password) {
