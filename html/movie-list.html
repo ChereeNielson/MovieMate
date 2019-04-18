@@ -356,10 +356,10 @@
 
                     <div class="col-md-6">
                         <!-- Layout Switcher -->
-                        <div class="layout-switcher">
+                        <!-- <div class="layout-switcher">
                             <a href="movie-list.html" class="list active"><i class="fa fa-align-justify"></i></a>
                             <a href="movie-grid.html" class="grid"><i class="fa fa-th"></i></a>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="col-md-6">
@@ -368,12 +368,12 @@
                         <div class="sort-by">
                             <div class="sort-by-select">
                                 <select class="chosen-select-no-single">
-                                    <option>Default Order</option>
-                                    <option>Featured</option>
-                                    <option>Top Viewed</option>
+                                    <option>Current Watchlist</option>
+                                    <option>Recommendations</option>
+                                    <!-- <option>Top Viewed</option>
                                     <option>Top Rated</option>
                                     <option>Newest</option>
-                                    <option>Oldest</option>
+                                    <option>Oldest</option> -->
                                 </select>
                             </div>
                         </div>
@@ -396,48 +396,19 @@
 
                                 <!-- Movie List Image -->
                                 <div class="listing-image">
-
-                                    <!-- Play Button -->
-                                    <div class="play-btn">
-                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
-                                            <i class="fa fa-play"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="buttons">
-                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-heart"></i>
-                                        </a>
-
-                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Rating -->
-                                    <div class="stars">
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-
                                     <!-- Image -->
-                                    <img src="assets/images/posters/poster-1.jpg" alt="">
+                                    <img src="${movieData[i].image}" alt="">
                                 </div>
 
                                 <!-- Movie List Content -->
                                 <div class="listing-content">
                                     <div class="inner">
-                                        <h2 class="title">Star Wars</h2>
+                                        <h2 class="title">${movieData[i]}</h2>
 
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                                        <a href="movie-detail.html" class="btn btn-main btn-effect">details</a>
+                                        <p>${movieData[i].synopsis}</p>
+                                        <button id="recommend" class="btn btn-main btn-effect">recommend</button>
+                                        <button id="removerec" class="btn btn-main btn-effect">remove recommendation</button>
+                                        <button id="removewatch" class="btn btn-main btn-effect">remove from watchlist</button>
                                     </div>
                                 </div>
 
@@ -445,288 +416,7 @@
                         </div>
                     </div>
 
-                    <!-- Movie List Item -->
-                    <div class="col-md-12 col-sm-12">
-                        <div class="movie-list-1 mb30">
-                            <div class="listing-container">
-
-                                <!-- Movie List Image -->
-                                <div class="listing-image">
-
-                                    <!-- Play Button -->
-                                    <div class="play-btn">
-                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
-                                            <i class="fa fa-play"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="buttons">
-                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-heart"></i>
-                                        </a>
-
-                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Rating -->
-                                    <div class="stars">
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image -->
-                                    <img src="assets/images/posters/poster-2.jpg" alt="">
-                                </div>
-
-                                <!-- Movie List Content -->
-                                <div class="listing-content">
-                                    <div class="inner">
-                                        <h2 class="title">The Brain</h2>
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                                        <a href="movie-detail.html" class="btn btn-main btn-effect">details</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Movie List Item -->
-                    <div class="col-md-12 col-sm-12">
-                        <div class="movie-list-1 mb30">
-                            <div class="listing-container">
-
-                                <!-- Movie List Image -->
-                                <div class="listing-image">
-
-                                    <!-- Play Button -->
-                                    <div class="play-btn">
-                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
-                                            <i class="fa fa-play"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="buttons">
-                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-heart"></i>
-                                        </a>
-
-                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Rating -->
-                                    <div class="stars">
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image -->
-                                    <img src="assets/images/posters/poster-3.jpg" alt="">
-                                </div>
-
-                                <!-- Movie List Content -->
-                                <div class="listing-content">
-                                    <div class="inner">
-                                        <h2 class="title">The Mummy</h2>
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                                        <a href="movie-detail.html" class="btn btn-main btn-effect">details</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Movie List Item -->
-                    <div class="col-md-12 col-sm-12">
-                        <div class="movie-list-1 mb30">
-                            <div class="listing-container">
-
-                                <!-- Movie List Image -->
-                                <div class="listing-image">
-
-                                    <!-- Play Button -->
-                                    <div class="play-btn">
-                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
-                                            <i class="fa fa-play"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="buttons">
-                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-heart"></i>
-                                        </a>
-
-                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Rating -->
-                                    <div class="stars">
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image -->
-                                    <img src="assets/images/posters/poster-5.jpg" alt="">
-                                </div>
-
-                                <!-- Movie List Content -->
-                                <div class="listing-content">
-                                    <div class="inner">
-                                        <h2 class="title">Daredevil</h2>
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                                        <a href="movie-detail.html" class="btn btn-main btn-effect">details</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Movie List Item -->
-                    <div class="col-md-12 col-sm-12">
-                        <div class="movie-list-1 mb30">
-                            <div class="listing-container">
-
-                                <!-- Movie List Image -->
-                                <div class="listing-image">
-
-                                    <!-- Play Button -->
-                                    <div class="play-btn">
-                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
-                                            <i class="fa fa-play"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="buttons">
-                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-heart"></i>
-                                        </a>
-
-                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Rating -->
-                                    <div class="stars">
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-half-o"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image -->
-                                    <img src="assets/images/posters/poster-6.jpg" alt="">
-                                </div>
-
-                                <!-- Movie List Content -->
-                                <div class="listing-content">
-                                    <div class="inner">
-                                        <h2 class="title">Stranger Things</h2>
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                                        <a href="movie-detail.html" class="btn btn-main btn-effect">details</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Movie List Item -->
-                    <div class="col-md-12 col-sm-12">
-                        <div class="movie-list-1 mb30">
-                            <div class="listing-container">
-
-                                <!-- Movie List Image -->
-                                <div class="listing-image">
-
-                                    <!-- Play Button -->
-                                    <div class="play-btn">
-                                        <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" class="play-video">
-                                            <i class="fa fa-play"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Buttons -->
-                                    <div class="buttons">
-                                        <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-heart"></i>
-                                        </a>
-
-                                        <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="icon-share"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Rating -->
-                                    <div class="stars">
-                                        <div class="rating">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </div>
-                                    </div>
-
-                                    <!-- Image -->
-                                    <img src="assets/images/posters/poster-8.jpg" alt="">
-                                </div>
-
-                                <!-- Movie List Content -->
-                                <div class="listing-content">
-                                    <div class="inner">
-                                        <h2 class="title">The Flash</h2>
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                                        <a href="movie-detail.html" class="btn btn-main btn-effect">details</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- End of Movie List -->
+                 
 
 
 
