@@ -10,6 +10,8 @@ router
   .get(watchlistController.findById)
   .delete(watchlistController.remove);
 
+
+//Matches with "/api/watchlist/recommend/:id"
 router.route("/recommend/:id").get(watchlistController.recommend);
 
 module.exports = router;
