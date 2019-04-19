@@ -2,12 +2,14 @@ const router = require("express").Router();
 const watchlistController = require("../../controllers/watchlistController");
 
 // Matches with "/api/watchlist"
-router.route("/create").post(watchlistController.create);
+router.route("/").post(watchlistController.create);
 
 //Matches with "/api/watchlist/:id"
 router
   .route("/:id")
-  .get(watchlistController.findAll)
+  .get(watchlistController.findById)
   .delete(watchlistController.remove);
+
+router.route("/recommend/:id").get(watchlistController.recommend);
 
 module.exports = router;

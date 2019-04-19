@@ -1,25 +1,28 @@
 module.exports = function(sequelize, DataTypes) {
   let Watchlist = sequelize.define("Watchlist", {
+    UserId: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false
+    },
     imdbId: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     image: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     synopsis: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
     title: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     },
-    recomend: {
+    recommend: {
       type: DataTypes.BOOLEAN
     }
   });
   Watchlist.associate = function(models) {
     Watchlist.belongsTo(models.Users, {
       foreignKey: {
-        allowNull: false
       }
     });
   };
