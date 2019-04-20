@@ -22,8 +22,8 @@ module.exports = {
   },
 
   remove: function(req, res) {
-    db.Users.destroy({ where: { UserId: req.params.id } })
-      .then(dbUsers => res.json(dbUsers))
+    db.Friends.destroy({ where: { UserId: req.params.id } })
+      .then(dbFriends => res.json(dbFriends))
       .catch(err => res.status(422).json(err));
   }
 };
