@@ -19,6 +19,10 @@ var movieCard =
     </div>
 </div>`;
 
+// var recommended = {
+//     recommended: false
+// }
+
 // loading the watch list on the page
 loadWatchList()
 
@@ -38,15 +42,15 @@ $("removewatch").on("click", function() {
 });
 
 function loadWatchList() {
-    $.ajax("api/WatchList", {
+    $.ajax("api/watchlist", {
         type: "GET",
     }).then(
-
+        $("#movieDiv").prepend(movieCard)
     )
 }
 
 function removeFromWatchList() {
-    $.ajax("api/WatchList", {
+    $.ajax("api/watchlist", {
         type: "DELETE",
     }).then(
 
@@ -54,7 +58,7 @@ function removeFromWatchList() {
 }
 
 function recommend() {
-    $.ajax("api/recommendation", {
+    $.ajax("api/watchlist", {
         type: "PUT",
     }).then(
 
@@ -62,8 +66,8 @@ function recommend() {
 }
 
 function removeRecommendation() {
-    $.ajax("api/recommendation", {
-        type: "DELETE",
+    $.ajax("api/watchlist", {
+        type: "PUT",
     }).then(
 
     )
