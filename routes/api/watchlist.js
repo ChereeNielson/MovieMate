@@ -12,9 +12,10 @@ router
 
 
 //Matches with "/api/watchlist/recommend/:id"
-router.route("/recommend/:id")
-.get(watchlistController.recommend)
-.put(watchlistController.findById);
+router
+  .route("/recommend/:id")
+  .get(watchlistController.recommend)
+  .put(watchlistController.update);
 
 //Matches with "/api/watchlist/"
 
