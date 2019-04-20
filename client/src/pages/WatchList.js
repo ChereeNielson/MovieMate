@@ -16,6 +16,10 @@ class WatchList extends Component {
     }
 
     componentDidMount() {
+        this.getResults();
+    }
+
+    getResults = () => {
         API.getWatchList(1).then(res => {
             console.log(res);
             this.setState({ results: res.data })
@@ -30,14 +34,28 @@ class WatchList extends Component {
         })
     }
 
-    recommend = () => {
+    recommend = (id) => {
         alert("RECOMMENDED")
-        this.setState({ recommended: true })
+ 
+        let data = {
+            recommend: 1
+        }
+        API.recommendUpdate(id, data).then(res =>{
+            this.getResults()
+        });
+
     }
 
-    removeRec = () => {
+    removeRec = (id) => {
         alert("REMOVED")
-        this.setState({ recommended: false })
+        
+        let data = {
+            recommend: 0
+        }
+
+        API.recommendUpdate(id, data).then(res=>{
+            this.getResults()
+        });
     }
 
     render() {
@@ -51,12 +69,14 @@ class WatchList extends Component {
                     {this.state.results.map(res => {
                         return (
                             <div>
+                                
                                 <WatchListItem
                                     title={res.title}
                                     plot={res.synopsis ? res.synopsis : "no data"}
                                     image={res.image}
-                                    id={res.id}
-                                    recommend={this.recommend}
+                                    rec = {res.recommend}
+                                    recommend={() => this.recommend(res.id)}
+                                    removeRec={()=> this.removeRec(res.id)}
                                     removeFromList={() => this.removeWatchItem(res.id)}
                                 />
                             </div>

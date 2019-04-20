@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import RecommendBtn from "../RecommendBtn";
 import RemoveWatchListBtn from "../RemoveWatchListBtn";
-
+import RemoveRecBtn from "../RemoveRecBtn";
 function WatchListItem(props) {
     return (
         <div>
@@ -45,7 +45,7 @@ function WatchListItem(props) {
                             <div className="inner">
                                 <h2 className="title">{props.title}</h2>
                                 <p>{props.plot}</p>
-                                <RecommendBtn onClick={props.recommend} />
+                                {props.rec === false ? <RecommendBtn  onClick={props.recommend} /> : <RemoveRecBtn onClick={props.removeRec} />}
                                 <RemoveWatchListBtn onClick={props.removeFromList} />
                             </div>
                         </div>
