@@ -9,5 +9,8 @@ export default {
     },
     saveMovie: function(movieData) {
         return axios.post("/api/watchlist", movieData);
-      },
+    },
+    loadWatchList: function(movies) {
+        return axios.get("/api/watchlist")
+    }
 }

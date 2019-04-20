@@ -11,22 +11,22 @@ function WatchListItem(props) {
                         {/* Movie List Image */}
                         <div className="listing-image">
                             {/* Play Button */}
-                            <div className="play-btn">
+                            {/* <div className="play-btn">
                                 <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" className="play-video">
                                     <i className="fa fa-play" />
                                 </a>
-                            </div>
+                            </div> */}
                             {/* Buttons */}
-                            <div className="buttons">
+                            {/* <div className="buttons">
                                 <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
                                     <i className="icon-heart" />
                                 </a>
                                 <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
                                     <i className="icon-share" />
                                 </a>
-                            </div>
+                            </div> */}
                             {/* Rating */}
-                            <div className="stars">
+                            {/* <div className="stars">
                                 <div className="rating">
                                     <i className="fa fa-star" />
                                     <i className="fa fa-star" />
@@ -34,15 +34,15 @@ function WatchListItem(props) {
                                     <i className="fa fa-star" />
                                     <i className="fa fa-star-o" />
                                 </div>
-                            </div>
+                            </div> */}
                             {/* Image */}
-                            <img src="assets/images/posters/poster-1.jpg" alt />
+                            <img src={props.poster}  alt="" />
                         </div>
                         {/* Movie List Content */}
                         <div className="listing-content">
                             <div className="inner">
-                                <h2 className="title">Star Wars</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                <h2 className="title">{props.title}</h2>
+                                <p>{props.plot}</p>
                                 {props.children}
                             </div>
                         </div>
