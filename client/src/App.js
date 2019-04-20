@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import About from "./pages/About";
+import Search from './pages/Search';
+import WatchList from "./pages/WatchList";
+import FriendsList from "./pages/FriendsList";
+import UserProfile from "./pages/UserProfile";
 import './App.css';
-import Nav from "./components/Nav"
 
 class App extends Component {
   render() {
     return (
-      <Nav />
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/about" component={About} />
+            <Route exact path="/search" component={Search} />
+            <Route exact path="/watchlist" component={WatchList} />
+            <Route exact path="/friends" component={FriendsList} />
+            <Route exact path="/user" component={UserProfile} />
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
