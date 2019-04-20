@@ -17,12 +17,17 @@ class WatchList extends Component {
 
     componentDidMount() {
         API.getWatchList(1).then(res => {
+            console.log(res);
             this.setState({ results: res.data })
         })
     }
-    removeWatchItem = () => {
+    removeWatchItem = (id) => {
         alert("REMOVED")
-        this.setState({ added: false })
+        const filtered = this.state.results.filter(res => res.id != id);
+        this.setState({ results: filtered });
+        API.deleteWatchListItem(id).then(res => {
+            console.log(res);
+        })
     }
 
     recommend = () => {
@@ -48,10 +53,11 @@ class WatchList extends Component {
                             <div>
                                 <WatchListItem
                                     title={res.title}
-                                    plot={res.synopsis? res.synopsis: "no data"}
+                                    plot={res.synopsis ? res.synopsis : "no data"}
                                     image={res.image}
-                                    recommend = {this.recommend}
-                                    removeFromList = {this.removeWatchItem}
+                                    id={res.id}
+                                    recommend={this.recommend}
+                                    removeFromList={() => this.removeWatchItem(res.id)}
                                 />
                             </div>
                         )

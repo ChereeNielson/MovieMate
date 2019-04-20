@@ -15,6 +15,9 @@ export default {
     },
     getWatchList: function(id) {
         return axios.get("/api/watchlist/" + id)
+    },
+    deleteWatchListItem: function(id) {
+        return axios.delete("/api/watchlist/" + id)
     }
 
 }
