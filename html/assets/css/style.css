@@ -1142,7 +1142,9 @@ header.header .navbar-nav .nav-item.notification-wrapper {
     background: none;
 }
 
-#main-nav .navbar-nav .dropdown-menu>li>a:hover {}
+#main-nav .navbar-nav .dropdown-menu>li>a:hover {
+    
+}
 
 
 /*********** 4.4 Extra Menu *************/
