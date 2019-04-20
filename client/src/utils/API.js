@@ -10,4 +10,11 @@ export default {
     saveMovie: function(movieData) {
         return axios.post("/api/watchlist", movieData);
       },
+    recommendUpdate: function(id) {
+        return axios.put("/api/recommend/" + id)
+    },
+    getWatchList: function(id) {
+        return axios.get("/api/watchlist/" + id)
+    }
+
 }

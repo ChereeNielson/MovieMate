@@ -7,12 +7,19 @@ import WatchListItem from "../components/WatchListItem";
 import RemoveWatchListBtn from "../components/RemoveWatchListBtn";
 import RecommendBtn from "../components/RecommendBtn";
 import RemoveRecBtn from "../components/RemoveRecBtn";
+import API from "../utils/API";
 class WatchList extends Component {
     state = {
+        results: [],
         recommended: false,
         added: true
     }
 
+    componentDidMount() {
+        API.getWatchList(1).then(res => {
+            this.setState({ results: res.data })
+        })
+    }
     removeWatchItem = () => {
         alert("REMOVED")
         this.setState({ added: false })
@@ -36,10 +43,20 @@ class WatchList extends Component {
                     title="Watch List"
                 />
                 <Wrapper>
-                    <WatchListItem>
-                        <RemoveWatchListBtn onClick = {this.removeWatchItem}/>
-                        <RecommendBtn onClick={this.recommend} />
-                    </WatchListItem>
+                    {this.state.results.map(res => {
+                        return (
+                            <div>
+                                <WatchListItem
+                                    title={res.title}
+                                    plot={res.synopsis? res.synopsis: "no data"}
+                                    image={res.image}
+                                    recommend = {this.recommend}
+                                    removeFromList = {this.removeWatchItem}
+                                />
+                            </div>
+                        )
+                    })}
+
                 </Wrapper>
 
                 <Footer />

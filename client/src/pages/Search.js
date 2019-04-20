@@ -46,14 +46,16 @@ class Search extends Component {
         this.setState({ added: false })
     }
 
-    recommend = () => {
+    recommend = (id) => {
         alert("RECOMMENDED")
         this.setState({ recommended: true })
+        API.recommendUpdate({
+         
+        })
     }
 
-    removeRec = () => {
+    removeRec = (id) => {
         alert("REMOVED")
-        this.setState({ recommended: false })
     }
 
     handleInputChange = event => {
@@ -96,7 +98,7 @@ class Search extends Component {
                     /> : ""}
                     {this.state.results.Title ? <Wrapper>
                         {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={this.removeWatchItem} />}
-                        {this.state.recommended === false ? <RecommendBtn onClick={this.recommend} /> : <RemoveRecBtn onClick={this.removeRec} />}
+                        {this.state.recommended === false ? <RecommendBtn onClick={this.recommend} id={this.state.results.imdbID} /> : <RemoveRecBtn onClick={this.removeRec} />}
                     </Wrapper> : ""}
                     <Footer />
                 </Wrapper>

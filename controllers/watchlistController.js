@@ -9,7 +9,6 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body)
     db.Watchlist.create(req.body)
       .then(dbWatchlist => res.json(dbWatchlist))
       .catch(err => res.status(422).json(err));

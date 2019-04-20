@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css";
+import RecommendBtn from "../RecommendBtn";
+import RemoveWatchListBtn from "../RemoveWatchListBtn";
 
 function WatchListItem(props) {
     return (
@@ -36,14 +38,15 @@ function WatchListItem(props) {
                                 </div>
                             </div>
                             {/* Image */}
-                            <img src="assets/images/posters/poster-1.jpg" alt />
+                            <img src={props.image} alt />
                         </div>
                         {/* Movie List Content */}
                         <div className="listing-content">
                             <div className="inner">
-                                <h2 className="title">Star Wars</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                {props.children}
+                                <h2 className="title">{props.title}</h2>
+                                <p>{props.plot}</p>
+                                <RecommendBtn onClick={props.recommend} />
+                                <RemoveWatchListBtn onClick={props.removeFromList} />
                             </div>
                         </div>
                     </div>
