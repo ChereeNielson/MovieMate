@@ -25,8 +25,20 @@ class Search extends Component {
             .catch(err => console.log(err));
     };
     addToWatchList = () => {
+        
         alert("ADDED")
-        this.setState({ added: true })
+        API.saveMovie({
+            UserId: 1,
+            imdbId: this.state.results.imdbID,
+            image: this.state.results.Poster,
+            synopsis: this.state.results.Plot,
+            title: this.state.results.Title,
+            recommend: false,
+        }).then(res =>
+            console.log(res)
+        )
+            .catch(err => console.log(err))
+
     }
 
     removeWatchItem = () => {
@@ -83,8 +95,8 @@ class Search extends Component {
                         removeWatch={this.removeWatchItem}
                     /> : ""}
                     {this.state.results.Title ? <Wrapper>
-                        {this.state.added === false? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={this.removeWatchItem} />}
-                        {this.state.recommended === false? <RecommendBtn onClick={this.recommend} /> : <RemoveRecBtn onClick={this.removeRec} />}
+                        {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={this.removeWatchItem} />}
+                        {this.state.recommended === false ? <RecommendBtn onClick={this.recommend} /> : <RemoveRecBtn onClick={this.removeRec} />}
                     </Wrapper> : ""}
                     <Footer />
                 </Wrapper>
