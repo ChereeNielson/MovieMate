@@ -7,9 +7,16 @@ router.route("/").post(watchlistController.create);
 //Matches with "/api/watchlist/:id"
 router
   .route("/:id")
-  .get(watchlistController.findById)
+  .get(watchlistController.findByUserId)
   .delete(watchlistController.remove);
 
-router.route("/recommend/:id").get(watchlistController.recommend);
+
+//Matches with "/api/watchlist/recommend/:id"
+router
+  .route("/recommend/:id")
+  .get(watchlistController.recommend)
+  .put(watchlistController.update);
+
+//Matches with "/api/watchlist/"
 
 module.exports = router;
