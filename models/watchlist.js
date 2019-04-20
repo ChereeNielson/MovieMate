@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     },
     synopsis: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING(500)
     },
     title: {
       type: DataTypes.STRING

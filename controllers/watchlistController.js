@@ -1,7 +1,7 @@
 const db = require("../models");
 
 module.exports = {
-  findById: function(req, res) {
+  findByUserId: function(req, res) {
     db.Watchlist.findAll({
       where: { userId: req.params.id }
     })
@@ -38,6 +38,11 @@ module.exports = {
           res.send(dbWatchlist);
         })
       })
+      .catch(err => res.status(422).json(err));
+  },
+  update: function(req, res) {
+    db.Watchlist.update(req.body, { where: { id: req.params.id } })
+      .then(dbWatchlist => res.json(dbWatchlist))
       .catch(err => res.status(422).json(err));
   }
 };
