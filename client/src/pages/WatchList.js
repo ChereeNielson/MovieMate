@@ -66,6 +66,7 @@ class WatchList extends Component {
                     title="Watch List"
                 />
                 <Wrapper>
+                    
                     {this.state.results.map(res => {
                         return (
                             <div>

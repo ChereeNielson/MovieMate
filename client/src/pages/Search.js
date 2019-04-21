@@ -31,9 +31,13 @@ class Search extends Component {
     }
     search = query => {
         API.search(query)
-            .then(res =>
+            .then(res => {
+                if (this.state.userData.length === 0) {
+                    this.setState({ results: res.data })
+                }
                 this.state.userData.map(info => {
                     if (info.title === res.data.Title) {
+                        this.setState({ results: res.data })
                         this.setState({ added: true })
                         this.setState({ results: res.data })
                         this.setState({ dataId: info.id })
@@ -46,7 +50,7 @@ class Search extends Component {
                         this.setState({ recommended: true })
                     }
                 })
-            )
+            })
             .catch(err => console.log(err));
     };
     addToWatchList = () => {
