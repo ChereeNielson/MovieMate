@@ -7,25 +7,55 @@ import WatchListItem from "../components/WatchListItem";
 import RemoveWatchListBtn from "../components/RemoveWatchListBtn";
 import RecommendBtn from "../components/RecommendBtn";
 import RemoveRecBtn from "../components/RemoveRecBtn";
+import API from "../utils/API";
 class WatchList extends Component {
     state = {
+        results: [],
         recommended: false,
         added: true
     }
 
-    removeWatchItem = () => {
-        alert("REMOVED")
-        this.setState({ added: false })
+    componentDidMount() {
+        this.getResults();
     }
 
-    recommend = () => {
+    getResults = () => {
+        API.getWatchList(1).then(res => {
+            console.log(res);
+            this.setState({ results: res.data })
+        })
+    }
+    removeWatchItem = (id) => {
+        alert("REMOVED")
+        const filtered = this.state.results.filter(res => res.id != id);
+        this.setState({ results: filtered });
+        API.deleteWatchListItem(id).then(res => {
+            console.log(res);
+        })
+    }
+
+    recommend = (id) => {
         alert("RECOMMENDED")
-        this.setState({ recommended: true })
+ 
+        let data = {
+            recommend: 1
+        }
+        API.recommendUpdate(id, data).then(res =>{
+            this.getResults()
+        });
+
     }
 
-    removeRec = () => {
+    removeRec = (id) => {
         alert("REMOVED")
-        this.setState({ recommended: false })
+        
+        let data = {
+            recommend: 0
+        }
+
+        API.recommendUpdate(id, data).then(res=>{
+            this.getResults()
+        });
     }
 
     render() {
@@ -36,10 +66,24 @@ class WatchList extends Component {
                     title="Watch List"
                 />
                 <Wrapper>
-                    <WatchListItem>
-                        <RemoveWatchListBtn onClick = {this.removeWatchItem}/>
-                        <RecommendBtn onClick={this.recommend} />
-                    </WatchListItem>
+                    
+                    {this.state.results.map(res => {
+                        return (
+                            <div>
+                                
+                                <WatchListItem
+                                    title={res.title}
+                                    plot={res.synopsis ? res.synopsis : "no data"}
+                                    image={res.image}
+                                    rec = {res.recommend}
+                                    recommend={() => this.recommend(res.id)}
+                                    removeRec={()=> this.removeRec(res.id)}
+                                    removeFromList={() => this.removeWatchItem(res.id)}
+                                />
+                            </div>
+                        )
+                    })}
+
                 </Wrapper>
 
                 <Footer />

@@ -9,13 +9,12 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body)
     db.Watchlist.create(req.body)
       .then(dbWatchlist => res.json(dbWatchlist))
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
-    db.Watchlist.destroy({ where: { UserId: req.params.id } })
+    db.Watchlist.destroy({ where: { id: req.params.id } })
       .then(dbWatchlist => res.json(dbWatchlist))
       .catch(err => res.status(422).json(err));
   },
@@ -42,6 +41,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log(req.body)
     db.Watchlist.update(req.body, { where: { id: req.params.id } })
       .then(dbWatchlist => res.json(dbWatchlist))
       .catch(err => res.status(422).json(err));
