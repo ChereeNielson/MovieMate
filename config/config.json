@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "Dw2cb25141414!@",
+      "password": "newpassword",
       "database": "MovieMate",
       "host": "127.0.0.1",
       "dialect": "mysql"
