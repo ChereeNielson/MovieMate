@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.css";
+import { Link } from "react-router-dom";
 function Nav() {
     return (
       <div className="wrapper">
@@ -27,144 +28,20 @@ function Nav() {
                 {/* ====== Start of Main Menu ====== */}
                 <ul className="navbar-nav mx-auto" id="main-menu">
                   {/* Menu Item */}
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+                  <li className="nav-item">
+                  <Link to="/">Home</Link>
                     {/* Dropdown Menu */}
-                    <ul className="dropdown-menu">
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="friends.html">Home Version 1</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="index2.html">Home Version 2</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="index3.html">Home Version 3</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="index4.html">Home Version 4</a>
-                      </li>
-                    </ul>
-                  </li>
-                  {/* Menu Item */}
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                    {/* Dropdown Menu */}
-                    <ul className="dropdown-menu">
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="404.html">404 Page</a>
-                      </li>
-                      {/* Divider */}
-                      <li className="divider" role="separator" />
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="celebrities-list.html">celebrities list</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="celebrities-grid.html">celebrities grid</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="celebrity-detail.html">celebrity detail</a>
-                      </li>
-                      {/* Divider */}
-                      <li className="divider" role="separator" />
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="contact-us.html">Contact us</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="coming-soon.html">Coming soon</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="pricing.html">Pricing Plan</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="login-register.html">Login - Register</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="testimonials.html">Testimonials</a>
-                      </li>
-                    </ul>
-                  </li>
-                  {/* Menu Item */}
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Movies &amp; TV Shows</a>
-                    {/* Dropdown Menu */}
-                    <ul className="dropdown-menu">
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-list.html">Movie List 1</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-list2.html">Movie List 2</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-grid.html">Movie Grid 1</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-grid2.html">Movie Grid 2</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-grid3.html">Movie Grid 3</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-grid4.html">Movie Grid 4</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-detail.html">Movie Detail</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="movie-detail2.html">Movie Detail 2</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="watch-later.html">Watch Later</a>
-                      </li>
-                    </ul>
-                  </li>
-                  {/* Menu Item */}
-                  <li className="nav-item dropdown">
-                    <a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
-                    {/* Dropdown Menu */}
-                    <ul className="dropdown-menu">
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="blog-list.html">Blog List</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="blog-list-fullwidth.html">Blog List Fullwidth</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="blog-post-detail.html">Blog Detail</a>
-                      </li>
-                      {/* Menu Item */}
-                      <li>
-                        <a className="dropdown-item" href="blog-post-detail-fullwidth.html">Blog Detail Fullwidth</a>
-                      </li>
-                    </ul>
                   </li>
                   {/* Menu Item */}
                   <li className="nav-item">
-                    <a className="nav-link" href="contact-us.html">Contact us</a>
+                  <Link to="/friends">Friends</Link>
+                  </li>
+                  {/* Menu Item */}
+                  <li className="nav-item">
+                  <Link to="/watchlist">Watch List</Link>
+                  </li>
+                  <li className="nav-item">
+                  <Link to="/about">About Us</Link>
                   </li>
                 </ul>
                 {/* ====== End of Main Menu ====== */}
@@ -172,9 +49,8 @@ function Nav() {
                 <ul className="navbar-nav extra-nav">
                   {/* Menu Item */}
                   <li className="nav-item">
-                    <a className="nav-link toggle-search" href="#">
-                      <i className="fa fa-search" />
-                    </a>
+                  <Link to="/search" className="toggle-search nav-link"><i className="fa fa-search" /></Link>
+                   
                   </li>
                   {/* Menu Item */}
                   <li className="nav-item notification-wrapper">
