@@ -70,7 +70,7 @@ class Search extends Component {
             title: this.state.results.Title,
             recommend: false,
         }).then(res =>
-            this.setState({ dataId: res.data.id}),
+            this.setState({ dataId: res.data.id }),
             this.setState({ added: true })
 
         )
@@ -94,7 +94,7 @@ class Search extends Component {
             recommend: 1
         }
         API.recommendUpdate(id, data).then(res => {
-            
+
             this.setState({ recommended: true })
         });
 
@@ -107,7 +107,7 @@ class Search extends Component {
         }
 
         API.recommendUpdate(id, data).then(res => {
-     
+
             this.setState({ recommended: false })
         });
     }
@@ -147,7 +147,8 @@ class Search extends Component {
                     /> : ""}
                     {this.state.results.Title ? <Wrapper>
                         {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={() => this.removeWatchItem(this.state.dataId)} />}
-                        {this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)} />}
+                        {this.state.added === false ? "" : this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)}
+                        />}
                     </Wrapper> : ""}
                     <Footer />
                 </Wrapper>
