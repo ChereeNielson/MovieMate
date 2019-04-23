@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
 import FriendsListItem from "../components/FriendsListItem";
+import FriendsSearchBar from "../components/FriendsSearchBar";
 
 class FriendsList extends Component {
     render() {
@@ -14,6 +15,7 @@ class FriendsList extends Component {
                     title="My Friends"
                 />
                 <Wrapper>
+                    <FriendsSearchBar />
                     <FriendsListItem 
                     bio = "TESTINGTESTINGTESTING"
                     image = "https://i.ebayimg.com/images/g/vfsAAOSwcLxYDELn/s-l300.jpg"
