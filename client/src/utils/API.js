@@ -11,13 +11,25 @@ export default {
         return axios.post("/api/watchlist", movieData);
     },
     getWatchList: function (id) {
-        return axios.get("/api/watchlist/" + id)
+        return axios.get("/api/watchlist/" + id);
     },
     deleteWatchListItem: function (id) {
-        return axios.delete("/api/watchlist/" + id)
+        return axios.delete("/api/watchlist/" + id);
     },
     recommendUpdate: function (id, data) {
-        return axios.put("/api/watchlist/recommend/" + id, data)
+        return axios.put("/api/watchlist/recommend/" + id, data);
     },
+    getFriends: function (id) {
+        return axios.get("/api/friends/" + id);
+    },
+    removeFriend: function (id) {
+        return axios.delete("/api/friends/" + id);
+    },
+    addFriend: function (id) {
+        return axios.put("/api/friends/" + id);
+    },
+    searchForFriend: function (query) {
+        return axios.get("/api/friends/" + query);
+    }
 
 }
