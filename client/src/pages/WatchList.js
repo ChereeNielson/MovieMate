@@ -19,7 +19,6 @@ class WatchList extends Component {
 
     getResults = () => {
         API.getWatchList(1).then(res => {
-            console.log(res);
             this.setState({ results: res.data })
         })
     }
@@ -28,7 +27,6 @@ class WatchList extends Component {
         const filtered = this.state.results.filter(res => res.id != id);
         this.setState({ results: filtered });
         API.deleteWatchListItem(id).then(res => {
-            console.log(res);
         })
     }
 
