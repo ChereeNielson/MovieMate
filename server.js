@@ -11,7 +11,6 @@ app.use(express.json());
 
 app.use(logger("dev"));
 
-app.use(express.static("html"));
 
 app.options("*", cors());
 app.use(routes);
