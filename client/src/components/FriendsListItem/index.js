@@ -17,10 +17,10 @@ function FriendsListItem(props) {
                         <div className="celebrity-content">
                             <div className="inner">
                                 <h3 className="title"><a href="celebrity-detail.html">{props.name}</a></h3>
-                                <p>{props.bio}<br />
-                                    Favorite Movie: {props.favoriteMovie}<br />
-                                    Celebrity Crush: {props.celebrityCrush}<br />
-                                    Favorite Treat: {props.favoriteTreat}<br /></p>
+                                <p>{props.bio ? props.bio : ""}<br />
+                                    Favorite Movie: {props.favoriteMovie ? props.favoriteMovie: ""}<br />
+                                    Celebrity Crush: {props.celebrityCrush ? props.celebrityCrush: ""}<br />
+                                    Favorite Treat: {props.favoriteTreat ? props.favoriteTreat: ""}<br /></p>
                             </div>
                         </div>
                     </div>

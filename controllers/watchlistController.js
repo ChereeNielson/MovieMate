@@ -26,22 +26,28 @@ module.exports = {
         let tempData = []
         for (let i = 0; i < dbFriends.length; i++ ){
           let followedId = dbFriends[i].dataValues.FollowedId
+
           tempData.push(followedId)
         }
         console.log(tempData)
         db.Watchlist.findAll({
+          include: [
+            {
+              model: db.Users,
+              attributes: ["firstName", "lastName"]
+            }
+          ],
           where: { 
-            userId:  tempData
+            UserId:  tempData
           }
         })
         .then(function(dbWatchlist){
-          res.send(dbWatchlist);
+          res.json(dbWatchlist);
         })
       })
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    console.log(req.body)
     db.Watchlist.update(req.body, { where: { id: req.params.id } })
       .then(dbWatchlist => res.json(dbWatchlist))
       .catch(err => res.status(422).json(err));

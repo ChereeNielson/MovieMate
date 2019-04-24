@@ -1,60 +1,92 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
 import WatchListItem from "../components/WatchListItem";
-import RemoveWatchListBtn from "../components/RemoveWatchListBtn";
-import RecommendBtn from "../components/RecommendBtn";
-import RemoveRecBtn from "../components/RemoveRecBtn";
+import RecommendedItem from "../components/RecommendedItem";
 import API from "../utils/API";
 class WatchList extends Component {
     state = {
         results: [],
-        recommended: false,
-        added: true
+        selectValue: '',
+        friendData: [],
+        userID: "",
+        isAuthenticated: false
     }
 
     componentDidMount() {
-        this.getResults();
+        let data = sessionStorage.getItem('userID');
+        if (data != null) {
+            this.setState({ isAuthenticated: true })
+        }
+        this.getResults(data);
+        this.getRecommendations(data);
+        this.getInitialState();
+        this.setState({ userID: data })
     }
-
-    getResults = () => {
-        API.getWatchList(1).then(res => {
-            console.log(res);
+    getRecommendations = (id) => {
+        API.getRecommendations(id).then(res => {
+            this.setState({ friendData: res.data })
+        })
+    }
+    getResults = (id) => {
+        API.getWatchList(id).then(res => {
             this.setState({ results: res.data })
         })
     }
+    getInitialState = () => {
+        this.setState({ selectValue: "current watchlist" })
+    }
+    handleChange = e => {
+        this.setState({ selectValue: e.target.value });
+    }
+    addToWatchList = () => {
+
+        API.saveMovie({
+            UserId: this.state.userID,
+            imdbId: this.state.results.imdbID,
+            image: this.state.results.Poster,
+            synopsis: this.state.results.Plot,
+            title: this.state.results.Title,
+            recommend: false,
+        }).then(res =>
+            this.setState({ dataId: res.data.id }),
+            this.setState({ added: true })
+
+        )
+            .catch(err => console.log(err))
+
+    }
     removeWatchItem = (id) => {
-        alert("REMOVED")
-        const filtered = this.state.results.filter(res => res.id != id);
-        this.setState({ results: filtered });
+
         API.deleteWatchListItem(id).then(res => {
-            console.log(res);
+            this.getResults(this.state.userID);
         })
     }
 
     recommend = (id) => {
-        alert("RECOMMENDED")
- 
+
+
         let data = {
             recommend: 1
         }
-        API.recommendUpdate(id, data).then(res =>{
-            this.getResults()
+        API.recommendUpdate(id, data).then(res => {
+            this.getResults(this.state.userID)
         });
 
     }
 
     removeRec = (id) => {
-        alert("REMOVED")
-        
+
+
         let data = {
             recommend: 0
         }
 
-        API.recommendUpdate(id, data).then(res=>{
-            this.getResults()
+        API.recommendUpdate(id, data).then(res => {
+            this.getResults(this.state.userID)
         });
     }
 
@@ -66,27 +98,57 @@ class WatchList extends Component {
                     title="Watch List"
                 />
                 <Wrapper>
-                    
-                    {this.state.results.map(res => {
-                        return (
-                            <div>
-                                
-                                <WatchListItem
-                                    title={res.title}
-                                    plot={res.synopsis ? res.synopsis : "no data"}
-                                    image={res.image}
-                                    rec = {res.recommend}
-                                    recommend={() => this.recommend(res.id)}
-                                    removeRec={()=> this.removeRec(res.id)}
-                                    removeFromList={() => this.removeWatchItem(res.id)}
-                                />
+                    {this.state.isAuthenticated === false ? <Link to="/login" className="btn btn-main mb-2">Login</Link> :
+                        this.state.results.length === 0 ? <h2>Your WatchList is empty</h2> :
+                            <div className="row mb50">
+                                <div className="col-md-6" />
+                                <div className="col-md-6">
+                                    {/* Sort by */}
+                                    <div className="sort-by mr-4 mb-3">
+                                        <div className="sort-by-select">
+                                            <select onChange={this.handleChange} value={this.state.selectValue} className="chosen-select-no-single">
+                                                <option value="current watchlist">Current Watchlist</option>
+                                                <option value="recommendations">Recommendations</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        )
-                    })}
+                    }
 
+                    {this.state.selectValue === "current watchlist" ?
+                        this.state.results.map(res => {
+                            return (
+                                <div>
+                                    <WatchListItem
+                                        title={res.title}
+                                        plot={res.synopsis ? res.synopsis : "no data"}
+                                        image={res.image}
+                                        rec={res.recommend}
+                                        recommend={() => this.recommend(res.id)}
+                                        removeRec={() => this.removeRec(res.id)}
+                                        removeFromList={() => this.removeWatchItem(res.id)}
+                                    />
+                                </div>
+                            )
+                        }) :
+                        this.state.friendData.length === 0 ? <h2>No current friend recommendations</h2> :
+                            this.state.friendData.map(res => {
+                                return (
+                                    <div>
+                                        <RecommendedItem
+                                            title={res.title}
+                                            name={res.User.firstName + " " + res.User.lastName}
+                                            image={res.image}
+                                        />
+                                    </div>
+                                )
+                            }
+                            )}
                 </Wrapper>
 
                 <Footer />
+
             </div>
         )
     }

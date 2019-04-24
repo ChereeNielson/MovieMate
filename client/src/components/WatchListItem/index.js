@@ -12,32 +12,6 @@ function WatchListItem(props) {
                     <div className="listing-container">
                         {/* Movie List Image */}
                         <div className="listing-image">
-                            {/* Play Button */}
-                            <div className="play-btn">
-                                <a href="https://www.youtube.com/watch?v=Q0CbN8sfihY" className="play-video">
-                                    <i className="fa fa-play" />
-                                </a>
-                            </div>
-                            {/* Buttons */}
-                            <div className="buttons">
-                                <a href="#" data-original-title="Rate" data-toggle="tooltip" data-placement="bottom">
-                                    <i className="icon-heart" />
-                                </a>
-                                <a href="#" data-original-title="Share" data-toggle="tooltip" data-placement="bottom">
-                                    <i className="icon-share" />
-                                </a>
-                            </div>
-                            {/* Rating */}
-                            <div className="stars">
-                                <div className="rating">
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star" />
-                                    <i className="fa fa-star-o" />
-                                </div>
-                            </div>
-                            {/* Image */}
                             <img src={props.image} alt />
                         </div>
                         {/* Movie List Content */}
