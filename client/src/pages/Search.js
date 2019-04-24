@@ -35,6 +35,7 @@ class Search extends Component {
 
         })
     }
+  
     search = query => {
         this.reset();
         API.search(query)
