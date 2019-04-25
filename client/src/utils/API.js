@@ -28,8 +28,8 @@ export default {
     addFriend: function (id) {
         return axios.put("/api/friends/" + id);
     },
-    searchForFriend: function (query) {
-        return axios.get("/api/friends/" + query);
+    searchForFriend: function (email) {
+        return axios.get("/api/users/" + email);
     }
 
 }

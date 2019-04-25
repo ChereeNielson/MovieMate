@@ -11,26 +11,39 @@ class FriendsList extends Component {
 
     state = {
         results: [],
-        friends: true
+        friends: true,
+        search: ""
     }
 
     componentDidMount() {
         this.loadFriends();
     }
 
-    loadFriends = () => {
+    handleInputChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.searchFriends(this.state.search);
+    };
+
+    loadFriends = (res) => {
         API.getFriends().then(res => {
             console.log(res);
-            this.setState({ results: res.data })
         })
     }
 
-    // searchFriends = query => {
-    //     API.searchForFriend(query)
-    //     .then(res => {
-
-    //     })
-    // }
+    searchFriends = email => {
+        API.searchForFriend(email)
+        .then(res => {
+            console.log(res);
+        })
+    }
 
     unfriend = (id) => {
         alert("Friend Removed")
@@ -59,16 +72,22 @@ class FriendsList extends Component {
                     title="My Friends"
                 />
                 <Wrapper>
-                    <FriendsSearchBar />
+                    <FriendsSearchBar name="search" 
+                    value={this.state.search} 
+                    onChange={this.handleInputChange} 
+                    onClick={this.handleFormSubmit}/>
+                    {this.state.results.map(res => {
+                        return(
                     <FriendsListItem 
-                    // bio = "TESTINGTESTINGTESTING"
-                    // image = "https://i.ebayimg.com/images/g/vfsAAOSwcLxYDELn/s-l300.jpg"
-                    // name = "JD"
-                    // favoriteMovie = "Cant think of one right now"
-                    // celebrityCrush = "Morgan Freeman"
-                    // favoriteTreat = "popcorn or something"
-
+                    bio = {res.bio}
+                    image = {res.profileImg}
+                    name = {res.firstName + res.lastName}
+                    favoriteMovie = "Cant think of one right now"
+                    celebrityCrush = "Morgan Freeman"
+                    favoriteTreat = "popcorn or something"
                     />
+                    )
+                })}
                 </Wrapper>
                 <Footer />
             </div>
