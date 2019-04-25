@@ -21,6 +21,9 @@ export default {
     },
     recommendUpdate: function (id, data) {
         return axios.put("/api/watchlist/recommend/" + id, data)
+    },
+    login: function(email, password) {
+        return axios.post("/api/users/auth/" + email, password)
     }
 
 }
