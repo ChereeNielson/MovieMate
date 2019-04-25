@@ -38,6 +38,7 @@ class Search extends Component {
   
     search = query => {
         this.reset();
+
         API.search(query)
             .then(res => {
                 if (this.state.userData.length === 0) {
@@ -127,6 +128,7 @@ class Search extends Component {
     render() {
         return (
             <div>
+        
                 <Nav />
                 <Wrapper>
 

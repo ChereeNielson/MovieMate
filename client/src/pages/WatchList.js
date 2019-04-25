@@ -4,24 +4,27 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
 import WatchListItem from "../components/WatchListItem";
-import RemoveWatchListBtn from "../components/RemoveWatchListBtn";
-import RecommendBtn from "../components/RecommendBtn";
-import RemoveRecBtn from "../components/RemoveRecBtn";
+import RecommendedItem from "../components/RecommendedItem";
 import API from "../utils/API";
 class WatchList extends Component {
     state = {
         results: [],
-        selectValue: ''
+        selectValue: '',
+        friendData: []
     }
 
     componentDidMount() {
         this.getResults();
+        this.getRecommendations();
         this.getInitialState();
     }
-
+    getRecommendations = () => {
+        API.getRecommendations(1).then(res => {
+            this.setState({ friendData: res.data })
+        })
+    }
     getResults = () => {
         API.getWatchList(1).then(res => {
-            console.log(res);
             this.setState({ results: res.data })
         })
     }
@@ -31,12 +34,27 @@ class WatchList extends Component {
     handleChange = e => {
         this.setState({ selectValue: e.target.value });
     }
+    addToWatchList = () => {
+
+        API.saveMovie({
+            UserId: 1,
+            imdbId: this.state.results.imdbID,
+            image: this.state.results.Poster,
+            synopsis: this.state.results.Plot,
+            title: this.state.results.Title,
+            recommend: false,
+        }).then(res =>
+            this.setState({ dataId: res.data.id }),
+            this.setState({ added: true })
+
+        )
+            .catch(err => console.log(err))
+
+    }
     removeWatchItem = (id) => {
 
-        const filtered = this.state.results.filter(res => res.id != id);
-        this.setState({ results: filtered });
         API.deleteWatchListItem(id).then(res => {
-            console.log(res);
+            this.getResults();
         })
     }
 
@@ -90,7 +108,6 @@ class WatchList extends Component {
                         this.state.results.map(res => {
                             return (
                                 <div>
-
                                     <WatchListItem
                                         title={res.title}
                                         plot={res.synopsis ? res.synopsis : "no data"}
@@ -102,28 +119,19 @@ class WatchList extends Component {
                                     />
                                 </div>
                             )
-                        }) : this.state.results.map(res => {
-                            if (res.recommend) {
+                        }) : this.state.friendData.map(res => {
                                 return (
                                     <div>
-                                        <WatchListItem
+                                        <RecommendedItem
                                             title={res.title}
-                                            plot={res.synopsis ? res.synopsis : "no data"}
+                                            name={res.User.firstName + " " + res.User.lastName}
                                             image={res.image}
-                                            rec={res.recommend}
-                                            recommend={() => this.recommend(res.id)}
-                                            removeRec={() => this.removeRec(res.id)}
-                                            removeFromList={() => this.removeWatchItem(res.id)}
                                         />
                                     </div>
-
                                 )
                             }
-
-                    }) }
-
+                        )}
                 </Wrapper>
-
                 <Footer />
             </div>
         )
