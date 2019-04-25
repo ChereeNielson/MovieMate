@@ -1,7 +1,10 @@
 {
     "development": {
       "username": "root",
-      "password": "Mr.Robot",
+
+
+      "password": "newpassword",
+
       "database": "MovieMate",
       "host": "127.0.0.1",
       "dialect": "mysql"
@@ -14,9 +17,7 @@
       "dialect": "mysql"
     },
     "production": {
-      "production": {
         "use_env_variable": "JAWSDB_URL",
         "dialect": "mysql" 
-      }
     }
   }
