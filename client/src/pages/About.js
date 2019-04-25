@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Nav from "../components/Nav"
+import Nav from "../components/Nav";
 
 class About extends Component {
 

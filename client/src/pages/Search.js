@@ -5,11 +5,11 @@ import Form from "../components/Form";
 import SearchResult from "../components/SearchResults";
 import Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
-import API from "../utils/API";
 import AddWatchListBtn from "../components/AddWatchListBtn";
 import RemoveRecBtn from "../components/RemoveRecBtn";
 import RemoveWatchListBtn from "../components/RemoveWatchListBtn";
 import RecommendBtn from "../components/RecommendBtn";
+import API from "../utils/API";
 class Search extends Component {
     state = {
         results: [],
@@ -35,8 +35,10 @@ class Search extends Component {
 
         })
     }
+  
     search = query => {
         this.reset();
+
         API.search(query)
             .then(res => {
                 if (this.state.userData.length === 0) {
@@ -126,6 +128,7 @@ class Search extends Component {
     render() {
         return (
             <div>
+        
                 <Nav />
                 <Wrapper>
 
