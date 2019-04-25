@@ -10,9 +10,7 @@ import RemoveRecBtn from "../components/RemoveRecBtn";
 import API from "../utils/API";
 class WatchList extends Component {
     state = {
-        results: [],
-        recommended: false,
-        added: true
+        results: []
     }
 
     componentDidMount() {
@@ -26,7 +24,7 @@ class WatchList extends Component {
         })
     }
     removeWatchItem = (id) => {
-        alert("REMOVED")
+        
         const filtered = this.state.results.filter(res => res.id != id);
         this.setState({ results: filtered });
         API.deleteWatchListItem(id).then(res => {
@@ -35,7 +33,7 @@ class WatchList extends Component {
     }
 
     recommend = (id) => {
-        alert("RECOMMENDED")
+     
  
         let data = {
             recommend: 1
@@ -47,7 +45,7 @@ class WatchList extends Component {
     }
 
     removeRec = (id) => {
-        alert("REMOVED")
+      
         
         let data = {
             recommend: 0

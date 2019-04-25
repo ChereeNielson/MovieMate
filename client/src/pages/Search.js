@@ -20,16 +20,23 @@ class Search extends Component {
         dataId: ""
     }
     componentDidMount() {
-        this.getResults();
+        this.reset();
     }
 
+    reset = () => {
+        this.getResults();
+        this.setState({ added: false });
+        this.setState({ recommended: false });
+    }
     getResults = () => {
         API.getWatchList(1).then(res => {
-            console.log(res);
+            console.log(res.data)
             this.setState({ userData: res.data })
+
         })
     }
     search = query => {
+        this.reset();
         API.search(query)
             .then(res => {
                 if (this.state.userData.length === 0) {
@@ -41,7 +48,6 @@ class Search extends Component {
                         this.setState({ added: true })
                         this.setState({ results: res.data })
                         this.setState({ dataId: info.id })
-                        console.log(this.state.added);
                     }
                     else {
                         this.setState({ results: res.data })
@@ -50,12 +56,12 @@ class Search extends Component {
                         this.setState({ recommended: true })
                     }
                 })
+
             })
             .catch(err => console.log(err));
     };
     addToWatchList = () => {
 
-        alert("ADDED")
         API.saveMovie({
             UserId: 1,
             imdbId: this.state.results.imdbID,
@@ -64,42 +70,44 @@ class Search extends Component {
             title: this.state.results.Title,
             recommend: false,
         }).then(res =>
+            this.setState({ dataId: res.data.id }),
             this.setState({ added: true })
+
         )
             .catch(err => console.log(err))
 
     }
 
     removeWatchItem = (id) => {
-        alert("REMOVED")
+        this.getResults();
+        console.log(this.state.userData);
         API.deleteWatchListItem(id).then(res => {
+
             this.setState({ added: false })
         })
     }
 
 
     recommend = (id) => {
-        alert("RECOMMENDED")
 
         let data = {
             recommend: 1
         }
         API.recommendUpdate(id, data).then(res => {
-            this.getResults()
+
             this.setState({ recommended: true })
         });
 
     }
 
     removeRec = (id) => {
-        alert("REMOVED")
 
         let data = {
             recommend: 0
         }
 
         API.recommendUpdate(id, data).then(res => {
-            this.getResults()
+
             this.setState({ recommended: false })
         });
     }
@@ -136,14 +144,11 @@ class Search extends Component {
                         title={this.state.results.Title}
                         poster={this.state.results.Poster}
                         plot={this.state.results.Plot}
-                        add={this.addToWatchList}
-                        recommend={this.recommend}
-                        removeRec={this.removeRec}
-                        removeWatch={this.removeWatchItem}
                     /> : ""}
                     {this.state.results.Title ? <Wrapper>
                         {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={() => this.removeWatchItem(this.state.dataId)} />}
-                        {this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)} />}
+                        {this.state.added === false ? "" : this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)}
+                        />}
                     </Wrapper> : ""}
                     <Footer />
                 </Wrapper>
