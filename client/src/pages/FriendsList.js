@@ -35,6 +35,7 @@ class FriendsList extends Component {
     loadFriends = (res) => {
         API.getFriends().then(res => {
             console.log(res);
+            this.setState({ results: res.data} )
         })
     }
 
@@ -42,6 +43,7 @@ class FriendsList extends Component {
         API.searchForFriend(email)
         .then(res => {
             console.log(res);
+            this.setState({ results: res.data} )
         })
     }
 
@@ -76,18 +78,16 @@ class FriendsList extends Component {
                     value={this.state.search} 
                     onChange={this.handleInputChange} 
                     onClick={this.handleFormSubmit}/>
-                    {this.state.results.map(res => {
-                        return(
+                    <div>
                     <FriendsListItem 
-                    bio = {res.bio}
-                    image = {res.profileImg}
-                    name = {res.firstName + res.lastName}
-                    favoriteMovie = "Cant think of one right now"
-                    celebrityCrush = "Morgan Freeman"
-                    favoriteTreat = "popcorn or something"
+                    bio = {this.state.results.bio}
+                    image = {this.state.results.profileImg}
+                    name = {this.state.results.firstName + this.state.results.lastName}
+                    // favoriteMovie = "Cant think of one right now"
+                    // celebrityCrush = "Morgan Freeman"
+                    // favoriteTreat = "popcorn or something"
                     />
-                    )
-                })}
+                    </div>
                 </Wrapper>
                 <Footer />
             </div>
