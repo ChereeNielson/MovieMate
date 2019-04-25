@@ -40,7 +40,13 @@ module.exports = {
       } else if (!dbUsers.validPassword(req.body.password)) {
         res.send("Incorrect Password");
       } else if (dbUsers.validPassword(req.body.password)) {
-        res.send("Authenticated");
+        console.log(dbUsers.id)
+        let response = {
+          authenticated: true,
+          id: dbUsers.id,
+          name: dbUsers.firstName + " " + dbUsers.lastName
+        }
+        res.json(response);
       }
     });
   }

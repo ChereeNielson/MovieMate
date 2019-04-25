@@ -1,11 +1,9 @@
 import axios from "axios";
-const BASEURL = "http://www.omdbapi.com/?t=";
-const APIKEY = "4b3460ba";
 
 
 export default {
     search: function (query) {
-        return axios.get(BASEURL + query + "&apikey=" + APIKEY);
+        return axios.get("/api/omdb/"+ query);
     },
     saveMovie: function (movieData) {
         return axios.post("/api/watchlist", movieData);
