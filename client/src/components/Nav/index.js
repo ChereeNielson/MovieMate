@@ -68,27 +68,24 @@ class Nav extends Component {
                 {/* ====== End of Main Menu ====== */}
                 {/* ====== Start of Extra Nav ====== */}
                 <ul className="navbar-nav extra-nav">
-                  {/* Menu Item */}
                   <li className="nav-item">
                     <Link to="/search" className="toggle-search nav-link"><i className="fa fa-search" /></Link>
 
                   </li>
-                  {/* Menu Item */}
                   <li className="nav-item notification-wrapper">
                     <a className="nav-link notification" href="#">
                       <i className="fa fa-globe" />
                       <span className="notification-count">2</span>
                     </a>
                   </li>
-                  {/* Menu Item */}
                   {this.state.isAuthenticated ?
-                    <li onClick={this.signOut} className="nav-item m-auto">
-                      <Link to="/" className="btn btn-main btn-effect login-btn popup-with-zoom-anim">
+                    <li onClick={this.signOut} className="nav-item">
+                      <Link to="/" className="btn btn-main btn-effect login-btn">
                         <i className="icon-user" />sign out
                     </Link>
                     </li> :
-                    <li className="nav-item m-auto">
-                      <Link to="/login" className="btn btn-main btn-effect login-btn popup-with-zoom-anim">
+                    <li className="nav-item">
+                      <Link to="/login" className="btn btn-main btn-effect login-btn">
                         <i className="icon-user" />login
                     </Link>
                     </li>
