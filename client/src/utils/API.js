@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default {
     search: function (query) {
-        return axios.get("/api/omdb/"+ query);
+        return axios.get("/api/omdb/" + query);
     },
     saveMovie: function (movieData) {
         return axios.post("/api/watchlist", movieData);
@@ -22,6 +22,9 @@ export default {
     },
     login: function(email, password) {
         return axios.post("/api/users/auth/" + email, password)
+    },
+    signUp: function(data) {
+        return axios.post("api/users", data)
     }
 
 }

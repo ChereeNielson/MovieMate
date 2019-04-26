@@ -17,27 +17,30 @@ class Search extends Component {
         search: "",
         recommended: false,
         added: false,
-        dataId: ""
+        dataId: "",
+        userID: ""
     }
     componentDidMount() {
-        this.reset();
+        let data = sessionStorage.getItem('userID');
+        this.reset(data);
+        this.setState({ userID: data })
     }
 
-    reset = () => {
-        this.getResults();
+    reset = (id) => {
+        this.getResults(id);
         this.setState({ added: false });
         this.setState({ recommended: false });
     }
-    getResults = () => {
-        API.getWatchList(1).then(res => {
+    getResults = (id) => {
+        API.getWatchList(id).then(res => {
             console.log(res.data)
             this.setState({ userData: res.data })
 
         })
     }
-  
+
     search = query => {
-        this.reset();
+        this.reset(this.state.userID);
 
         API.search(query)
             .then(res => {
@@ -65,7 +68,7 @@ class Search extends Component {
     addToWatchList = () => {
 
         API.saveMovie({
-            UserId: 1,
+            UserId: this.state.userID,
             imdbId: this.state.results.imdbID,
             image: this.state.results.Poster,
             synopsis: this.state.results.Plot,
@@ -128,7 +131,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-        
+
                 <Nav />
                 <Wrapper>
 

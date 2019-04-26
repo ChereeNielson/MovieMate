@@ -10,21 +10,25 @@ class WatchList extends Component {
     state = {
         results: [],
         selectValue: '',
-        friendData: []
+        friendData: [],
+        userID: "",
+        isAuthenticated: false
     }
 
     componentDidMount() {
-        this.getResults();
-        this.getRecommendations();
+        let data = sessionStorage.getItem('userID');
+        this.getResults(data);
+        this.getRecommendations(data);
         this.getInitialState();
+        this.setState({userID: data})
     }
-    getRecommendations = () => {
-        API.getRecommendations(1).then(res => {
+    getRecommendations = (id) => {
+        API.getRecommendations(id).then(res => {
             this.setState({ friendData: res.data })
         })
     }
-    getResults = () => {
-        API.getWatchList(1).then(res => {
+    getResults = (id) => {
+        API.getWatchList(id).then(res => {
             this.setState({ results: res.data })
         })
     }
@@ -37,7 +41,7 @@ class WatchList extends Component {
     addToWatchList = () => {
 
         API.saveMovie({
-            UserId: 1,
+            UserId: this.state.userID,
             imdbId: this.state.results.imdbID,
             image: this.state.results.Poster,
             synopsis: this.state.results.Plot,
@@ -54,7 +58,7 @@ class WatchList extends Component {
     removeWatchItem = (id) => {
 
         API.deleteWatchListItem(id).then(res => {
-            this.getResults();
+            this.getResults(this.state.userID);
         })
     }
 
@@ -65,7 +69,7 @@ class WatchList extends Component {
             recommend: 1
         }
         API.recommendUpdate(id, data).then(res => {
-            this.getResults()
+            this.getResults(this.state.userID)
         });
 
     }
@@ -78,7 +82,7 @@ class WatchList extends Component {
         }
 
         API.recommendUpdate(id, data).then(res => {
-            this.getResults()
+            this.getResults(this.state.userID)
         });
     }
 
