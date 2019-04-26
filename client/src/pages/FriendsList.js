@@ -11,8 +11,10 @@ class FriendsList extends Component {
 
     state = {
         results: [],
+        usersFriends: [],
         friends: true,
-        search: ""
+        search: "",
+        userSearchedSomeone: false
     }
 
     componentDidMount() {
@@ -33,9 +35,15 @@ class FriendsList extends Component {
     };
 
     loadFriends = (res) => {
-        API.getFriends().then(res => {
-            console.log(res);
-            this.setState({ results: res.data} )
+        API.getUserCookie().then((userCookie)=> {          
+            const { id } = userCookie.data.user;
+
+            console.log(id);
+
+            API.getFriends(id).then(res => {
+                console.log(res);
+                this.setState({ usersFriends: res.data} )
+            })
         })
     }
 
@@ -43,7 +51,10 @@ class FriendsList extends Component {
         API.searchForFriend(email)
         .then(res => {
             console.log(res);
-            this.setState({ results: res.data} )
+            this.setState({ 
+                results: res.data,
+                userSearchedSomeone: true
+            })
         })
     }
 
@@ -79,7 +90,8 @@ class FriendsList extends Component {
                     onChange={this.handleInputChange} 
                     onClick={this.handleFormSubmit}/>
                     <div>
-                    <FriendsListItem 
+                    {
+                    this.state.userSearchedSomeone && <FriendsListItem 
                     bio = {this.state.results.bio}
                     image = {this.state.results.profileImg}
                     name = {this.state.results.firstName + this.state.results.lastName}
@@ -87,6 +99,24 @@ class FriendsList extends Component {
                     // celebrityCrush = "Morgan Freeman"
                     // favoriteTreat = "popcorn or something"
                     />
+                    }
+
+                    { 
+                        this.state.usersFriends.map((friendData)=> {
+                            const friend = friendData.Followee
+                            return (
+                                <FriendsListItem 
+                                    bio = {friend.bio}
+                                    image = {friend.profileImg}
+                                    name = {friend.firstName + friend.lastName}
+                                    // favoriteMovie = "Cant think of one right now"
+                                    // celebrityCrush = "Morgan Freeman"
+                                    // favoriteTreat = "popcorn or something"
+                                />
+                            )
+                        })
+                        
+                    }
                     </div>
                 </Wrapper>
                 <Footer />

@@ -30,6 +30,9 @@ export default {
     },
     searchForFriend: function (email) {
         return axios.get("/api/users/" + email);
+    },
+    getUserCookie: function () {
+        return axios.get("/api/friends/cookie");
     }
 
 }
