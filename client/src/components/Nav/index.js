@@ -6,17 +6,16 @@ class Nav extends Component {
     isAuthenticated: false
   }
   componentDidMount() {
-    this.authenticationCheck()
-  }
-  authenticationCheck = () => {
     let data = sessionStorage.getItem('userID');
-    console.log(data);
-    if (data != 0) {
+    this.authenticationCheck(data)
+  }
+  authenticationCheck = (data) => {
+    if (data != null) {
       this.setState({ isAuthenticated: true })
     }
   }
   signOut = () => {
-    sessionStorage.setItem('userID', 0)
+    sessionStorage.removeItem('userID')
     this.setState({
       isAuthenticated: false
     })

@@ -18,7 +18,7 @@ class WatchList extends Component {
 
     componentDidMount() {
         let data = sessionStorage.getItem('userID');
-        if (data != 0) {
+        if (data != null) {
             this.setState({ isAuthenticated: true })
         }
         this.getResults(data);
