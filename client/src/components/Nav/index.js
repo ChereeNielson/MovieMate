@@ -36,7 +36,7 @@ class Nav extends Component {
             <div className="container-fluid">
               {/* ====== Start of Navbar ====== */}
               <nav className="navbar navbar-expand-lg">
-                <a className="navbar-brand" href="index">
+                <a className="navbar-brand" href="/">
                   {/* INSERT YOUR LOGO HERE */}
                   <img src="assets/images/movie-mate-caps.svg" alt="logo" width={150} className="logo" />
                   {/* INSERT YOUR WHITE LOGO HERE */}
@@ -53,10 +53,6 @@ class Nav extends Component {
                 <div className="navbar-collapse" id="main-nav">
                   {/* ====== Start of Main Menu ====== */}
                   <ul className="navbar-nav mx-auto" id="main-menu">
-                    {/* Menu Item */}
-                    <li className="nav-item">
-                    <Link to="/">Home</Link>
-                    </li>
                     {/* Menu Item */}
                     <li className="nav-item">
                     <Link to="/friends">Friends</Link>

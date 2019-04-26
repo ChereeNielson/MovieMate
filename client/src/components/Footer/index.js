@@ -4,10 +4,10 @@ import "./style.css";
 function Footer() {
     return (
         <div>
-            {/* =============== START OF FOOTER =============== */}
+           {/* =============== START OF FOOTER =============== */}
       <footer className="footer1 bg-dark">
         {/* ===== START OF FOOTER WIDGET AREA ===== */}
-        <div className="footer-widget-area ptb100">
+        <div className="footer-widget-area ptb40">
           <div className="container">
             <div className="row">
               {/* Start of Follow*/}
@@ -41,6 +41,7 @@ function Footer() {
                         {/* CHEREE - Name */}
                         <div>
                           <span><strong>Cheree Nielson</strong></span>
+                          <p>Team Lead | FE</p>
                         </div>
                       </div>
                     </div>
@@ -69,6 +70,7 @@ function Footer() {
                         {/* ERIC - Name */}
                         <div>
                           <span><strong>Eric Sayer</strong></span>
+                          <p>Project Czar | BE</p>
                         </div>
                       </div>
                     </div>
@@ -97,6 +99,7 @@ function Footer() {
                         {/* JOHN - Name */}
                         <div>
                           <span><strong>John Filiaga</strong></span>
+                          <p>React Master | FE</p>
                         </div>
                       </div>
                     </div>
@@ -125,6 +128,7 @@ function Footer() {
                         {/* KATIE - Name */}
                         <div>
                           <span><strong>Katie Loyola</strong></span>
+                          <p>Presentationist | FE</p>
                         </div>
                       </div>
                     </div>
@@ -153,6 +157,7 @@ function Footer() {
                         {/* STAN - Name */}
                         <div>
                           <span><strong>Stan Bakalov</strong></span>
+                          <p>React Master | FE</p>
                         </div>
                       </div>
                     </div>
@@ -165,7 +170,7 @@ function Footer() {
         </div>
         {/* ===== END OF FOOTER WIDGET AREA ===== */}
         {/* ===== START OF FOOTER COPYRIGHT AREA ===== */}
-        <div className="footer-copyright-area ptb30">
+        <div className="footer-copyright-area ptb20">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
