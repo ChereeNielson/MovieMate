@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -17,10 +18,13 @@ class WatchList extends Component {
 
     componentDidMount() {
         let data = sessionStorage.getItem('userID');
+        if (data != 0) {
+            this.setState({ isAuthenticated: true })
+        }
         this.getResults(data);
         this.getRecommendations(data);
         this.getInitialState();
-        this.setState({userID: data})
+        this.setState({ userID: data })
     }
     getRecommendations = (id) => {
         API.getRecommendations(id).then(res => {
@@ -94,20 +98,24 @@ class WatchList extends Component {
                     title="Watch List"
                 />
                 <Wrapper>
-                    <div className="row mb50">
-                        <div className="col-md-6" />
-                        <div className="col-md-6">
-                            {/* Sort by */}
-                            <div className="sort-by mr-4 mb-3">
-                                <div className="sort-by-select">
-                                    <select onChange={this.handleChange} value={this.state.selectValue} className="chosen-select-no-single">
-                                        <option value="current watchlist">Current Watchlist</option>
-                                        <option value="recommendations">Recommendations</option>
-                                    </select>
+                    {this.state.isAuthenticated === false ? <Link to="/login" className="btn btn-main mb-2">Login</Link> :
+                        this.state.results.length === 0 ? <h2>Your WatchList is empty</h2> :
+                            <div className="row mb50">
+                                <div className="col-md-6" />
+                                <div className="col-md-6">
+                                    {/* Sort by */}
+                                    <div className="sort-by mr-4 mb-3">
+                                        <div className="sort-by-select">
+                                            <select onChange={this.handleChange} value={this.state.selectValue} className="chosen-select-no-single">
+                                                <option value="current watchlist">Current Watchlist</option>
+                                                <option value="recommendations">Recommendations</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                    }
+
                     {this.state.selectValue === "current watchlist" ?
                         this.state.results.map(res => {
                             return (
@@ -123,7 +131,9 @@ class WatchList extends Component {
                                     />
                                 </div>
                             )
-                        }) : this.state.friendData.map(res => {
+                        }) :
+                        this.state.friendData.length === 0 ? <h2>No current friend recommendations</h2> :
+                            this.state.friendData.map(res => {
                                 return (
                                     <div>
                                         <RecommendedItem
@@ -134,9 +144,11 @@ class WatchList extends Component {
                                     </div>
                                 )
                             }
-                        )}
+                            )}
                 </Wrapper>
+
                 <Footer />
+
             </div>
         )
     }

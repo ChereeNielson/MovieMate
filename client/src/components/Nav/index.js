@@ -20,6 +20,7 @@ class Nav extends Component {
     this.setState({
       isAuthenticated: false
     })
+    window.location.reload();
   }
 
   render() {

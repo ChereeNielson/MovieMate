@@ -18,10 +18,14 @@ class Search extends Component {
         recommended: false,
         added: false,
         dataId: "",
-        userID: ""
+        userID: "",
+        isAuthenticated: false
     }
     componentDidMount() {
         let data = sessionStorage.getItem('userID');
+        if (data != 0) {
+            this.setState({ isAuthenticated: true })
+        }
         this.reset(data);
         this.setState({ userID: data })
     }
@@ -151,11 +155,12 @@ class Search extends Component {
                         poster={this.state.results.Poster}
                         plot={this.state.results.Plot}
                     /> : ""}
-                    {this.state.results.Title ? <Wrapper>
-                        {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={() => this.removeWatchItem(this.state.dataId)} />}
-                        {this.state.added === false ? "" : this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)}
-                        />}
-                    </Wrapper> : ""}
+                    {!this.state.isAuthenticated ? "" :
+                        this.state.results.Title ? <Wrapper>
+                            {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={() => this.removeWatchItem(this.state.dataId)} />}
+                            {this.state.added === false ? "" : this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)}
+                            />}
+                        </Wrapper> : ""}
                     <Footer />
                 </Wrapper>
             </div>
