@@ -16,11 +16,14 @@ class Login extends Component {
         }
         API.login(email, data).then(res => {
             console.log(res);
-            if (res.data === "Authenticated") {
+            if (res.data.authenticated === true) {
+                sessionStorage.setItem('userID', res.data.id);
                 this.setState({ isAuthenticated: true })
             }
             else {
                 this.setState({ badAttempt: true })
+                this.setState({email: ""})
+                this.setState({password: ""})
             }
         });
 
@@ -56,7 +59,7 @@ class Login extends Component {
                                             <form id="cariera_login" method="post">
                                                 <p className="status" />
                                                 <div className="form-group">
-                                                    {this.state.badAttempt ? <p style={{ color: "red" }}>Wrong email or password</p> : ""}
+                                                    {this.state.badAttempt ? <p style={{ color: "red" }}>Invalid email or password</p> : ""}
                                                     <label htmlFor="email">Username or Email *</label>
                                                     <input onChange={this.handleInputChange} name="email" value={this.state.email} type="text" className="form-control" id="username" placeholder="Your Username or Email *" />
                                                 </div>
@@ -64,12 +67,7 @@ class Login extends Component {
                                                     <label htmlFor="password">Password *</label>
                                                     <input onChange={this.handleInputChange} name="password" value={this.state.password} type="password" className="form-control" id="password" placeholder="Your Password *" />
                                                 </div>
-                                                <div className="form-group">
-                                                    <div className="checkbox pad-bottom-10">
-                                                        <input id="check1" type="checkbox" name="remember" defaultValue="yes" />
-                                                        <label htmlFor="check1">Keep me signed in</label>
-                                                    </div>
-                                                </div>
+                            
                                                 <div className="form-group">
                                                     <input type="submit" onClick={this.handleFormSubmit} defaultValue="Sign in" className="btn btn-main btn-effect nomargin" />
                                                 </div>
@@ -78,76 +76,14 @@ class Login extends Component {
                                             <div className="bottom-links">
                                                 <span>
                                                     Not a member?
-                      <a className="signUpClick">Sign up</a>
+                      <Link to="/signup" className="ml-2 signUpClick">Sign up</Link>
                                                 </span>
-                                                <a className="forgetPasswordClick pull-right">Forgot Password</a>
                                             </div>
                                         </div>
                                     </div>
-                                    {/* ===== End of Signin wrapper ===== */}
-                                    {/* ===== Start of Signup wrapper ===== */}
-                                    <div className="signup-wrapper">
-                                        <div className="small-dialog-headline">
-                                            <h4 className="text-center">Sign Up</h4>
-                                        </div>
-                                        <div className="small-dialog-content">
-                                            {/* Start of Registration form */}
-                                            <form id="cariera_registration" action="#" method="POST">
-                                                <p className="status" />
-                                                <div className="form-group">
-                                                    <label htmlFor="movify_user_login">Username</label>
-                                                    <input name="movify_user_login" id="movify_user_login" className="form-control" type="text" />
-                                                </div>
-                                                <div className="form-group">
-                                                    <label htmlFor="movify_user_email">Email</label>
-                                                    <input name="movify_user_email" id="movify_user_email" className="form-control" type="email" />
-                                                </div>
-                                                <div className="form-group">
-                                                    <label htmlFor="password">Password</label>
-                                                    <input name="movify_user_pass" id="movify_password" className="form-control" type="password" />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input type="submit" className="btn btn-main btn-effect nomargin" defaultValue="Register" />
-                                                </div>
-                                            </form>
-                                            {/* End of Registration form */}
-                                            <div className="bottom-links">
-                                                <span>
-                                                    Already have an account?
-                      <a className="signInClick">Sign in</a>
-                                                </span>
-                                                <a className="forgetPasswordClick pull-right">Forgot Password</a>
-                                            </div>
-                                        </div> {/* .small-dialog-content */}
-                                    </div>
-                                    {/* ===== End of Signup wrapper ===== */}
-                                    {/* ===== Start of Forget Password wrapper ===== */}
-                                    <div className="forgetpassword-wrapper">
-                                        <div className="small-dialog-headline">
-                                            <h4 className="text-center">Forgotten Password</h4>
-                                        </div>
-                                        <div className="small-dialog-content">
-                                            {/* Start of Forger Password form */}
-                                            <form id="forget_pass_form" action="#" method="post">
-                                                <p className="status" />
-                                                <div className="form-group">
-                                                    <label htmlFor="password">Email Address *</label>
-                                                    <input type="email" name="user_login" className="form-control" id="email3" placeholder="Email Address *" />
-                                                </div>
-                                                <div className="form-group">
-                                                    <input type="submit" name="submit" defaultValue="Get New Password" className="btn btn-main btn-effect nomargin" />
-                                                </div>
-                                            </form>
-                                            {/* End of Forger Password form */}
-                                            <div className="bottom-links">
-                                                <a className="cancelClick">Cancel</a>
-                                            </div>
-                                        </div>{/* .small-dialog-content */}
-                                    </div>
-                                    {/* ===== End of Forget Password wrapper ===== */}
                                 </div>
                                 {/* =============== END OF LOGIN & REGISTER POPUP =============== */}
-                                <a href="index.html" className="text-white">Back to Home</a>
+                                <Link to ="/" className="text-white">Back to Home</Link>
                             </div>
                         </main>
                     </div>

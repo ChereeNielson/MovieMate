@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -10,21 +11,28 @@ class WatchList extends Component {
     state = {
         results: [],
         selectValue: '',
-        friendData: []
+        friendData: [],
+        userID: "",
+        isAuthenticated: false
     }
 
     componentDidMount() {
-        this.getResults();
-        this.getRecommendations();
+        let data = sessionStorage.getItem('userID');
+        if (data != 0) {
+            this.setState({ isAuthenticated: true })
+        }
+        this.getResults(data);
+        this.getRecommendations(data);
         this.getInitialState();
+        this.setState({ userID: data })
     }
-    getRecommendations = () => {
-        API.getRecommendations(1).then(res => {
+    getRecommendations = (id) => {
+        API.getRecommendations(id).then(res => {
             this.setState({ friendData: res.data })
         })
     }
-    getResults = () => {
-        API.getWatchList(1).then(res => {
+    getResults = (id) => {
+        API.getWatchList(id).then(res => {
             this.setState({ results: res.data })
         })
     }
@@ -37,7 +45,7 @@ class WatchList extends Component {
     addToWatchList = () => {
 
         API.saveMovie({
-            UserId: 1,
+            UserId: this.state.userID,
             imdbId: this.state.results.imdbID,
             image: this.state.results.Poster,
             synopsis: this.state.results.Plot,
@@ -54,7 +62,7 @@ class WatchList extends Component {
     removeWatchItem = (id) => {
 
         API.deleteWatchListItem(id).then(res => {
-            this.getResults();
+            this.getResults(this.state.userID);
         })
     }
 
@@ -65,7 +73,7 @@ class WatchList extends Component {
             recommend: 1
         }
         API.recommendUpdate(id, data).then(res => {
-            this.getResults()
+            this.getResults(this.state.userID)
         });
 
     }
@@ -78,7 +86,7 @@ class WatchList extends Component {
         }
 
         API.recommendUpdate(id, data).then(res => {
-            this.getResults()
+            this.getResults(this.state.userID)
         });
     }
 
@@ -90,20 +98,24 @@ class WatchList extends Component {
                     title="Watch List"
                 />
                 <Wrapper>
-                    <div className="row mb50">
-                        <div className="col-md-6" />
-                        <div className="col-md-6">
-                            {/* Sort by */}
-                            <div className="sort-by mr-4 mb-3">
-                                <div className="sort-by-select">
-                                    <select onChange={this.handleChange} value={this.state.selectValue} className="chosen-select-no-single">
-                                        <option value="current watchlist">Current Watchlist</option>
-                                        <option value="recommendations">Recommendations</option>
-                                    </select>
+                    {this.state.isAuthenticated === false ? <Link to="/login" className="btn btn-main mb-2">Login</Link> :
+                        this.state.results.length === 0 ? <h2>Your WatchList is empty</h2> :
+                            <div className="row mb50">
+                                <div className="col-md-6" />
+                                <div className="col-md-6">
+                                    {/* Sort by */}
+                                    <div className="sort-by mr-4 mb-3">
+                                        <div className="sort-by-select">
+                                            <select onChange={this.handleChange} value={this.state.selectValue} className="chosen-select-no-single">
+                                                <option value="current watchlist">Current Watchlist</option>
+                                                <option value="recommendations">Recommendations</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                    }
+
                     {this.state.selectValue === "current watchlist" ?
                         this.state.results.map(res => {
                             return (
@@ -119,7 +131,9 @@ class WatchList extends Component {
                                     />
                                 </div>
                             )
-                        }) : this.state.friendData.map(res => {
+                        }) :
+                        this.state.friendData.length === 0 ? <h2>No current friend recommendations</h2> :
+                            this.state.friendData.map(res => {
                                 return (
                                     <div>
                                         <RecommendedItem
@@ -130,9 +144,11 @@ class WatchList extends Component {
                                     </div>
                                 )
                             }
-                        )}
+                            )}
                 </Wrapper>
+
                 <Footer />
+
             </div>
         )
     }

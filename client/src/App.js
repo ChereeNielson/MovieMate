@@ -7,6 +7,7 @@ import FriendsList from "./pages/FriendsList";
 import UserProfile from "./pages/UserProfile";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import './App.css';
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/friends" component={FriendsList} />
             <Route exact path="/user" component={UserProfile} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
           </Switch>
         </div>
       </Router>

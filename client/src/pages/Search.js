@@ -17,27 +17,34 @@ class Search extends Component {
         search: "",
         recommended: false,
         added: false,
-        dataId: ""
+        dataId: "",
+        userID: "",
+        isAuthenticated: false
     }
     componentDidMount() {
-        this.reset();
+        let data = sessionStorage.getItem('userID');
+        if (data != 0) {
+            this.setState({ isAuthenticated: true })
+        }
+        this.reset(data);
+        this.setState({ userID: data })
     }
 
-    reset = () => {
-        this.getResults();
+    reset = (id) => {
+        this.getResults(id);
         this.setState({ added: false });
         this.setState({ recommended: false });
     }
-    getResults = () => {
-        API.getWatchList(1).then(res => {
+    getResults = (id) => {
+        API.getWatchList(id).then(res => {
             console.log(res.data)
             this.setState({ userData: res.data })
 
         })
     }
-  
+
     search = query => {
-        this.reset();
+        this.reset(this.state.userID);
 
         API.search(query)
             .then(res => {
@@ -65,7 +72,7 @@ class Search extends Component {
     addToWatchList = () => {
 
         API.saveMovie({
-            UserId: 1,
+            UserId: this.state.userID,
             imdbId: this.state.results.imdbID,
             image: this.state.results.Poster,
             synopsis: this.state.results.Plot,
@@ -128,7 +135,7 @@ class Search extends Component {
     render() {
         return (
             <div>
-        
+
                 <Nav />
                 <Wrapper>
 
@@ -148,11 +155,12 @@ class Search extends Component {
                         poster={this.state.results.Poster}
                         plot={this.state.results.Plot}
                     /> : ""}
-                    {this.state.results.Title ? <Wrapper>
-                        {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={() => this.removeWatchItem(this.state.dataId)} />}
-                        {this.state.added === false ? "" : this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)}
-                        />}
-                    </Wrapper> : ""}
+                    {!this.state.isAuthenticated ? "" :
+                        this.state.results.Title ? <Wrapper>
+                            {this.state.added === false ? <AddWatchListBtn onClick={this.addToWatchList} /> : <RemoveWatchListBtn onClick={() => this.removeWatchItem(this.state.dataId)} />}
+                            {this.state.added === false ? "" : this.state.recommended === false ? <RecommendBtn onClick={() => this.recommend(this.state.dataId)} /> : <RemoveRecBtn onClick={() => this.removeRec(this.state.dataId)}
+                            />}
+                        </Wrapper> : ""}
                     <Footer />
                 </Wrapper>
             </div>

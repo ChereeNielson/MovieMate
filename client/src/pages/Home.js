@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import Nav from "../components/Nav";
-import Wrapper from "../components/Wrapper";
-import { Link } from "react-router-dom";
+
 class Home extends Component {
+    handleScriptCreate() {
+        this.setState({ scriptLoaded: false })
+    }
+
+    handleScriptError() {
+        this.setState({ scriptError: true })
+    }
+
+    handleScriptLoad() {
+        this.setState({ scriptLoaded: true })
+    }
+
     render() {
         return (
-            <div>
 
+            <div>
                 <div className="wrapper">
                     <Nav /> <br></br><br></br>
                     {/* =============== END OF HEADER NAVIGATION =============== */}
