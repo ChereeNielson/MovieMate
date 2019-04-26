@@ -1142,7 +1142,9 @@ header.header .navbar-nav .nav-item.notification-wrapper {
     background: none;
 }
 
-#main-nav .navbar-nav .dropdown-menu>li>a:hover {}
+#main-nav .navbar-nav .dropdown-menu>li>a:hover {
+    
+}
 
 
 /*********** 4.4 Extra Menu *************/
@@ -2939,6 +2941,11 @@ form.mailchimp .btn {
     object-fit: cover
 }
 
+
+/*Testing Videos*/
+.linkwrap { position:relative; display:inline-block; }
+.blocker { position:absolute; height:100%; width:100%; z-index:1; background:rgba(255,0,0,0.5);  }
+.linkwrap iframe { z-index: 2; }
 
 /********************** 7.4 Count up Section ************************/
 
@@ -4889,6 +4896,18 @@ main .col-md-12:last-of-type .movie-list-2 {
     -webkit-box-shadow: 0 0 0 10px rgba(147, 82, 179, .4);
     -moz-box-shadow: 0 0 0 10px rgba(147, 82, 179, .4);
     box-shadow: 0 0 0 10px rgba(147, 82, 179, .4);
+}
+/*Play VID*/
+.play-vid {
+    -webkit-box-shadow: 0 0 0 10px rgba(147, 82, 179, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(147, 82, 179, 0);
+    box-shadow: 0 0 0 10px rgba(147, 82, 179, 0);
+}
+
+.play-vid:hover {
+    -webkit-box-shadow: 0 0 0 10px rgba(147, 82, 179, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(147, 82, 179, 0);
+    box-shadow: 0 0 0 10px rgba(147, 82, 179, 0);
 }
 
 .movie-detail-intro2 .movie-details {
