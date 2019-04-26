@@ -2,13 +2,19 @@ import React, { Component } from 'react';
 import API from "../utils/API";
 import Home from "../pages/Home";
 import { Redirect } from 'react-router-dom'
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 class Login extends Component {
     state = {
         email: "",
         password: "",
         isAuthenticated: false,
         badAttempt: false
+    }
+    componentDidMount() {
+        let data = sessionStorage.getItem('userID')
+        if (data != null) {
+            this.setState({ isAuthenticated: true })
+        }
     }
     login = (email, password) => {
         let data = {
@@ -22,8 +28,8 @@ class Login extends Component {
             }
             else {
                 this.setState({ badAttempt: true })
-                this.setState({email: ""})
-                this.setState({password: ""})
+                this.setState({ email: "" })
+                this.setState({ password: "" })
             }
         });
 
@@ -43,7 +49,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {this.state.isAuthenticated === true ? <Redirect to="/" />:
+                {this.state.isAuthenticated === true ? <Redirect to="/" /> :
                     <div className="wrapper">
                         <main className="login-register-page" style={{ backgroundImage: 'url(assets/images/posters/movie-collection.jpg)' }}>
                             <div className="container">
@@ -67,7 +73,7 @@ class Login extends Component {
                                                     <label htmlFor="password">Password *</label>
                                                     <input onChange={this.handleInputChange} name="password" value={this.state.password} type="password" className="form-control" id="password" placeholder="Your Password *" />
                                                 </div>
-                            
+
                                                 <div className="form-group">
                                                     <input type="submit" onClick={this.handleFormSubmit} defaultValue="Sign in" className="btn btn-main btn-effect nomargin" />
                                                 </div>
@@ -83,7 +89,7 @@ class Login extends Component {
                                     </div>
                                 </div>
                                 {/* =============== END OF LOGIN & REGISTER POPUP =============== */}
-                                <Link to ="/" className="text-white">Back to Home</Link>
+                                <Link to="/" className="text-white">Back to Home</Link>
                             </div>
                         </main>
                     </div>
