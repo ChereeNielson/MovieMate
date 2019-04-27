@@ -1,5 +1,5 @@
 <p align="center">
-<img width="500" height="340" src="html/assets/images/movie-mate-caps.svg" width="100%"/>
+<img width="600" height="340" src="html/assets/images/movie-mate-caps.svg" width="100%"/>
 </p>
 
 ---
