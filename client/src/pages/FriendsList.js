@@ -73,7 +73,7 @@ class FriendsList extends Component {
     }
     API.removeFriend({data: removeFriend}).then(res => {
       console.log(res);
-      this.loadFriends()
+      this.loadFriends(this.state.UserId)
     });
   };
 
@@ -83,7 +83,7 @@ class FriendsList extends Component {
       FollowedId: id
     };
     API.addFriend(newFriend).then(res => {
-      this.loadFriends();
+      this.loadFriends(this.state.UserId)
     });
   };
 
