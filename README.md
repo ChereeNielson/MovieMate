@@ -15,6 +15,10 @@ Have you ever watched a great movie, and you want to tell your friends about it 
 
 Click here to create your [MovieMate](https://bootcampmoviemate.herokuapp.com/) account and start sharing your favorite movies with your mates!
 
+<p align="center">
+<img src="html/assets/images/girls-watching-scary-movie-500x333.jpg" width="100%"/>
+</p>
+
 ---
 ### APIs
 * OMDB
