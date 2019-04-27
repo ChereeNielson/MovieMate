@@ -40,7 +40,7 @@ class Nav extends Component {
                   {/* INSERT YOUR LOGO HERE */}
                   <img src="assets/images/movie-mate-caps.svg" alt="logo" width={150} className="logo" />
                   {/* INSERT YOUR WHITE LOGO HERE */}
-                  <img src="assets/images/movie-mate-caps-white.svg" alt="white logo" width={150} className="logo-white" />
+                  <img src="assets/images/movie-mate-caps-white.svg" alt="white logo" width={200} className="logo-white" />
                 </a>
                 {/* Login Button on Responsive */}
                 <a href="#login-register-popup" className="login-mobile-btn popup-with-zoom-anim"><i className="icon-user" /></a>
