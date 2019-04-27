@@ -24,7 +24,6 @@ export default {
         return axios.get("/api/friends/" + id);
     },
     removeFriend: function (data) {
-        console.log(data)
         return axios.delete("/api/friends/remove", data);
     },
     addFriend: function (data) {

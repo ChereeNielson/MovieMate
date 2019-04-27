@@ -67,12 +67,11 @@ class FriendsList extends Component {
   };
 
   unfriend = id => {
-    alert("Friend Removed");
-    let data = {
-        FollowedId: id,
-        UserId: this.state.UserId
+    let removeFriend = {
+      FollowedId: id,
+      UserId: this.state.UserId
     }
-    API.removeFriend(data).then(res => {
+    API.removeFriend({data: removeFriend}).then(res => {
       console.log(res);
       this.loadFriends()
     });
@@ -83,7 +82,6 @@ class FriendsList extends Component {
       UserId: this.state.UserId,
       FollowedId: id
     };
-    alert("New Friend Added");
     API.addFriend(newFriend).then(res => {
       this.loadFriends();
     });

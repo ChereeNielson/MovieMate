@@ -19,17 +19,17 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log(req.body)
     db.Friends.create(req.body)
       .then(dbFriends => res.json(dbFriends))
       .catch(err => res.status(422).json(err));
   },
 
   remove: function(req, res) {
+    console.log(req.body)
     db.Friends.destroy({ where: { 
       UserId: req.body.UserId,
       FollowedId: req.body.FollowedId } })
       .then(dbFriends => res.json(dbFriends))
-      .catch(err => res.status(422).json(err));
+
   }
 };
