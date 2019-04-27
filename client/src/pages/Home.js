@@ -85,13 +85,13 @@ class Home extends Component {
                   <div className="movie-box-1">
                     {/* Start of Poster */}
                     <div className="poster">
-                      <img src="assets/images/posters/poster-1.jpg" alt />
+                      <img src="assets/images/posters/poster-1.jpg" alt='image' />
                     </div>
                     {/* End of Poster */}
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt2527338/" target="_blank">Star Wars IX</a>
+                        <a href="https://www.imdb.com/title/tt2527338/" target="_blank">rel="noopener noreferrer" Star Wars IX</a>
                       </h4>
                       <span className="released">20 Dec 2019</span>
                     </div>
@@ -118,13 +118,13 @@ class Home extends Component {
                   <div className="movie-box-1">
                     {/* Start of Poster */}
                     <div className="poster">
-                      <img src="assets/images/posters/poster-2.jpg" alt />
+                      <img src="assets/images/posters/poster-2.jpg" alt="image" />
                     </div>
                     {/* End of Poster */}
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt5752360/" target="_blank">The Female Brain</a>
+                        <a href="https://www.imdb.com/title/tt5752360/" target="_blank">rel="noopener noreferrer" The Female Brain</a>
                       </h4>
                       <span className="released">9 Feb 2018</span>
                     </div>
@@ -151,13 +151,13 @@ class Home extends Component {
                   <div className="movie-box-1">
                     {/* Start of Poster */}
                     <div className="poster">
-                      <img src="assets/images/posters/poster-3.jpg" alt />
+                      <img src="assets/images/posters/poster-3.jpg" alt="image" />
                     </div>
                     {/* End of Poster */}
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt0120616/" target="_blank">The Mummy</a>
+                        <a href="https://www.imdb.com/title/tt0120616/" target="_blank">rel="noopener noreferrer" The Mummy</a>
                       </h4>
                       <span className="released">7 May 1999</span>
                     </div>
@@ -190,7 +190,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt1867030/" target="_blank">Parrot</a>
+                        <a href="https://www.imdb.com/title/tt1867030/" target="_blank">rel="noopener noreferrer" Parrot</a>
                       </h4>
                       <span className="released">28 July 2012</span>
                     </div>
@@ -239,7 +239,7 @@ class Home extends Component {
                     {/* End of Poster */}
                     {/* Start of Buttons to video*/}
                     <div className="buttons">
-                      <a href="https://www.imdb.com/title/tt1979376/" target="_blank" className="play-vid">
+                      <a href="https://www.imdb.com/title/tt1979376/" target="_blank" rel="noopener noreferrer" className="play-vid">
                         <i className="fa fa-play" />
                       </a>
                     </div>
@@ -267,7 +267,7 @@ class Home extends Component {
                     {/* End of Poster */}
                     {/* Start of Buttons */}
                     <div className="buttons">
-                      <a href="https://www.imdb.com/title/tt6139732/" target="_blank" className="play-vid">
+                      <a href="https://www.imdb.com/title/tt6139732/" target="_blank" rel="noopener noreferrer" className="play-vid">
                         <i className="fa fa-play" />
                       </a>
                     </div>
@@ -291,7 +291,7 @@ class Home extends Component {
                     {/* End of Poster */}
                     {/* Start of Buttons */}
                     <div className="buttons">
-                      <a href="https://www.imdb.com/title/tt6105098/" target="_blank" className="play-vid">
+                      <a href="https://www.imdb.com/title/tt6105098/" target="_blank" rel="noopener noreferrer" className="play-vid">
                         <i className="fa fa-play" />
                       </a>
                     </div>
@@ -337,7 +337,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/Q7ztHi9ejp4" target="_blank">Glass</a>
+                        <a href="https://youtu.be/Q7ztHi9ejp4" target="_blank">rel="noopener noreferrer" Glass</a>
                       </h4>
                       <span className="released">18 Jan 2019</span>
                     </div>
@@ -370,7 +370,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/0LHxvxdRnYc" target="_blank">Captain Marvel</a>
+                        <a href="https://youtu.be/0LHxvxdRnYc" target="_blank">rel="noopener noreferrer" Captain Marvel</a>
                       </h4>
                       <span className="released">8 Mar 2019</span>
                     </div>
@@ -403,7 +403,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/VllcgXSIJkE" target="_blank">Pet Sematary</a>
+                        <a href="https://youtu.be/VllcgXSIJkE" target="_blank">rel="noopener noreferrer" Pet Sematary</a>
                       </h4>
                       <span className="released">5 Apr 2019</span>
                     </div>
@@ -436,7 +436,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/TcMBFSGVi1c" target="_blank">Avengers: Endgame</a>
+                        <a href="https://youtu.be/TcMBFSGVi1c" target="_blank">rel="noopener noreferrer" Avengers: Endgame</a>
                       </h4>
                       <span className="released">26 Apr 2019</span>
                     </div>
@@ -469,7 +469,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/go6GEIrcvFY" target="_blank">Shazam!</a>
+                        <a href="https://youtu.be/go6GEIrcvFY" target="_blank">rel="noopener noreferrer" Shazam!</a>
                       </h4>
                       <span className="released">5 Apr 2019</span>
                     </div>
@@ -502,7 +502,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/SkcucKDrbOI" target="_blank">How to Train Your Dragon: The Hidden World</a>
+                        <a href="https://youtu.be/SkcucKDrbOI" target="_blank">rel="noopener noreferrer" How to Train Your Dragon: The Hidden World</a>
                       </h4>
                       <span className="released">22 Feb 2019</span>
                     </div>
@@ -647,7 +647,7 @@ class Home extends Component {
                 <div className="col-md-4">
                   <div className="bloglist-post-holder shadow-hover">
                     {/* Blog Post Thumbnail */}
-                    <a href="https://www.marvel.com/movies" target="_blank" className="bloglist-thumb-link hover-link">
+                    <a href="https://www.marvel.com/movies" target="_blank" rel="noopener noreferrer" className="bloglist-thumb-link hover-link">
                       <div className="bloglist-post-thumbnail" style={{background: 'url(assets/images/blog/Marvel.jpg)'}} />
                     </a>
                     {/* Blog Post Text Wrapper */}
@@ -660,7 +660,7 @@ class Home extends Component {
                       </div>
                       <div className="bloglist-excerpt">
                         <p>The time is now! Click here to get all caught up on the Marvel madness.</p>
-                        <a href="https://www.marvel.com/movies" target="_blank" className="btn btn-main btn-effect">marvel</a>
+                        <a href="https://www.marvel.com/movies" target="_blank" rel="noopener noreferrer" className="btn btn-main btn-effect">marvel</a>
                       </div>
                     </div>
                   </div>
@@ -669,7 +669,7 @@ class Home extends Component {
                 <div className="col-md-4">
                   <div className="bloglist-post-holder shadow-hover">
                     {/* Blog Post Thumbnail */}
-                    <a href="https://www.oscars.org/oscars" target="_blank" className="bloglist-thumb-link hover-link">
+                    <a href="https://www.oscars.org/oscars" target="_blank" rel="noopener noreferrer" className="bloglist-thumb-link hover-link">
                       <div className="bloglist-post-thumbnail" style={{background: 'url(assets/images/blog/Oscars2019.jpg)'}} />
                     </a>
                     {/* Blog Post Text Wrapper */}
@@ -682,7 +682,7 @@ class Home extends Component {
                       </div>
                       <div className="bloglist-excerpt">
                         <p>Click here to access the official page for the 2019 Oscars!</p>
-                        <a href="https://www.oscars.org/oscars" target="_blank" className="btn btn-main btn-effect">oscars</a>
+                        <a href="https://www.oscars.org/oscars" target="_blank" rel="noopener noreferrer" className="btn btn-main btn-effect">oscars</a>
                       </div>
                     </div>
                   </div>
@@ -691,7 +691,7 @@ class Home extends Component {
                 <div className="col-md-4">
                   <div className="bloglist-post-holder shadow-hover">
                     {/* Blog Post Thumbnail */}
-                    <a href="https://www.rollingstone.com/movies/movie-lists/50-greatest-romantic-comedies-of-all-time-790068/crazy-rich-asians-2018-792254/" target="_blank" className="bloglist-thumb-link hover-link">
+                    <a href="https://www.rollingstone.com/movies/movie-lists/50-greatest-romantic-comedies-of-all-time-790068/crazy-rich-asians-2018-792254/" target="_blank" rel="noopener noreferrer" className="bloglist-thumb-link hover-link">
                       <div className="bloglist-post-thumbnail" style={{background: 'url(assets/images/blog/90sRomComs.jpg)'}} />
                     </a>
                     {/* Blog Post Text Wrapper */}
@@ -704,7 +704,7 @@ class Home extends Component {
                       </div>
                       <div className="bloglist-excerpt">
                         <p>Click here for the 50 greatest romantic comedies of all time… #hopelessromantic</p>
-                        <a href="https://www.rollingstone.com/movies/movie-lists/50-greatest-romantic-comedies-of-all-time-790068/crazy-rich-asians-2018-792254/" target="_blank" className="btn btn-main btn-effect">rom-coms</a>
+                        <a href="https://www.rollingstone.com/movies/movie-lists/50-greatest-romantic-comedies-of-all-time-790068/crazy-rich-asians-2018-792254/" target="_blank" rel="noopener noreferrer" className="btn btn-main btn-effect">rom-coms</a>
                       </div>
                     </div>
                   </div>
