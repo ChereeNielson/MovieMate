@@ -88,7 +88,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt2527338/" target="_blank">rel="noopener noreferrer" Star Wars IX</a>
+                        <a href="https://www.imdb.com/title/tt2527338/" target="_blank" rel="noopener noreferrer" >Star Wars IX</a>
                       </h4>
                       <span className="released">20 Dec 2019</span>
                     </div>
@@ -121,7 +121,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt5752360/" target="_blank">rel="noopener noreferrer" The Female Brain</a>
+                        <a href="https://www.imdb.com/title/tt5752360/" target="_blank" rel="noopener noreferrer"> The Female Brain</a>
                       </h4>
                       <span className="released">9 Feb 2018</span>
                     </div>
@@ -154,7 +154,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt0120616/" target="_blank">rel="noopener noreferrer" The Mummy</a>
+                        <a href="https://www.imdb.com/title/tt0120616/" target="_blank" rel="noopener noreferrer"> The Mummy</a>
                       </h4>
                       <span className="released">7 May 1999</span>
                     </div>
@@ -187,7 +187,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://www.imdb.com/title/tt1867030/" target="_blank">rel="noopener noreferrer" Parrot</a>
+                        <a href="https://www.imdb.com/title/tt1867030/" target="_blank" rel="noopener noreferrer"> Parrot</a>
                       </h4>
                       <span className="released">28 July 2012</span>
                     </div>
@@ -334,7 +334,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/Q7ztHi9ejp4" target="_blank">rel="noopener noreferrer" Glass</a>
+                        <a href="https://youtu.be/Q7ztHi9ejp4" target="_blank" rel="noopener noreferrer"> Glass</a>
                       </h4>
                       <span className="released">18 Jan 2019</span>
                     </div>
@@ -367,7 +367,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/0LHxvxdRnYc" target="_blank">rel="noopener noreferrer" Captain Marvel</a>
+                        <a href="https://youtu.be/0LHxvxdRnYc" target="_blank" rel="noopener noreferrer"> Captain Marvel</a>
                       </h4>
                       <span className="released">8 Mar 2019</span>
                     </div>
@@ -400,7 +400,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/VllcgXSIJkE" target="_blank">rel="noopener noreferrer" Pet Sematary</a>
+                        <a href="https://youtu.be/VllcgXSIJkE" target="_blank" rel="noopener noreferrer"> Pet Sematary</a>
                       </h4>
                       <span className="released">5 Apr 2019</span>
                     </div>
@@ -433,7 +433,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/TcMBFSGVi1c" target="_blank">rel="noopener noreferrer" Avengers: Endgame</a>
+                        <a href="https://youtu.be/TcMBFSGVi1c" target="_blank" rel="noopener noreferrer"> Avengers: Endgame</a>
                       </h4>
                       <span className="released">26 Apr 2019</span>
                     </div>
@@ -466,7 +466,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/go6GEIrcvFY" target="_blank">rel="noopener noreferrer" Shazam!</a>
+                        <a href="https://youtu.be/go6GEIrcvFY" target="_blank" rel="noopener noreferrer"> Shazam!</a>
                       </h4>
                       <span className="released">5 Apr 2019</span>
                     </div>
@@ -499,7 +499,7 @@ class Home extends Component {
                     {/* Start of Movie Details */}
                     <div className="movie-details">
                       <h4 className="movie-title">
-                        <a href="https://youtu.be/SkcucKDrbOI" target="_blank">rel="noopener noreferrer" How to Train Your Dragon: The Hidden World</a>
+                        <a href="https://youtu.be/SkcucKDrbOI" target="_blank" rel="noopener noreferrer"> How to Train Your Dragon: The Hidden World</a>
                       </h4>
                       <span className="released">22 Feb 2019</span>
                     </div>
