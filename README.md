@@ -1,5 +1,5 @@
 <p align="center">
-<img width="460" height="300" src="../assets/images/movie-mate-caps.svg" width="100%"/>
+<img width="460" height="300" src="html/assets/images/movie-mate-caps.svg" width="100%"/>
 </p>
 
 ---
@@ -12,7 +12,7 @@ Click here for your [MovieMate](https://bootcampmoviemate.herokuapp.com/) access
 Have you ever watched a great movie, and you want to tell your friends about it – but you forgot where you watched it? With MovieMate, you can keep track of all the movies you love and make recommendations to friends! Here's how it works! 
 
 <p align="center">
-<img width="460" height="300" src="../assets/images/HowItWorks.png" width="100%"/>
+<img width="460" height="300" src="html/assets/images/HowItWorks.png" width="100%"/>
 </p>
 
 ---
