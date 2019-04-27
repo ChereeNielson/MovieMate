@@ -9,7 +9,7 @@ module.exports = {
         "http://www.omdbapi.com/?apikey=" +
         process.env.OMDB_API +
         "&t=" +
-        req.body.search
+        req.params.search
     })
       .then(function(results) {
         res.send(results.data);

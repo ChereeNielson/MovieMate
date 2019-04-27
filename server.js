@@ -39,7 +39,10 @@ app.use(express.json());
 
 app.use(logger("dev"));
 
-app.use(express.static("html"));
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.options("*", cors());
 app.use(routes);

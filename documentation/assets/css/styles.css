@@ -176,6 +176,8 @@ body {
 p {
     line-height: 1.5;
     font-size: 16px;
+    margin-bottom: 10px;
+    margin-top: 0;
 }
 
 a {
