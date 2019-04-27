@@ -19,7 +19,7 @@ class Nav extends Component {
     this.setState({
       isAuthenticated: false
     })
-    window.location.reload();
+    window.location.replace("/");
   }
 
   render() {
@@ -43,23 +43,27 @@ class Nav extends Component {
                   <img src="assets/images/movie-mate-caps-white.svg" alt="white logo" width={200} className="logo-white" />
                 </a>
                 {/* Login Button on Responsive */}
-                <a href="#login-register-popup" className="login-mobile-btn popup-with-zoom-anim"><i className="icon-user" /></a>
-                <button id="mobile-nav-toggler" className="hamburger hamburger--collapse" type="button">
-                  <span className="hamburger-box">
-                    <span className="hamburger-inner" />
-                  </span>
+                <button className="hamburger hamburger--collapse" type="button">
+                  <Link to="/friends"><i className="fas fa-user-friends mr-2"></i></Link>
+                  <Link to="/watchlist"> <i className="fas fa-video mr-2"></i> </Link>
+                  <Link to="/search"> <i className="fas fa-search mr-2"></i> </Link>
+                  {this.state.isAuthenticated ?
+                    <Link> <i onClick={this.signOut} className="fas fa-sign-out-alt"></i></Link> :
+                    <Link to="/login"><i className="icon-user" /></Link>
+                  }
                 </button>
+
                 {/* ====== Start of #main-nav ====== */}
                 <div className="navbar-collapse" id="main-nav">
                   {/* ====== Start of Main Menu ====== */}
                   <ul className="navbar-nav mx-auto" id="main-menu">
                     {/* Menu Item */}
                     <li className="nav-item">
-                    <Link to="/friends">Friends</Link>
+                      <Link to="/friends">Friends</Link>
                     </li>
                     {/* Menu Item */}
                     <li className="nav-item">
-                    <Link to="/watchlist">Watch List</Link>
+                      <Link to="/watchlist">Watch List</Link>
                     </li>
                   </ul>
                   {/* ====== End of Main Menu ====== */}
@@ -67,21 +71,21 @@ class Nav extends Component {
                   <ul className="navbar-nav extra-nav">
                     {/* Menu Item SEARCH */}
                     <li className="nav-item">
-                    <Link to="/search" className="toggle-search nav-link"><i className="fa fa-search" /></Link>
+                      <Link to="/search" className="toggle-search nav-link"><i className="fa fa-search" /></Link>
                     </li>
                     {/* Menu Item LOGIN */}
                     {this.state.isAuthenticated ?
-                    <li onClick={this.signOut} className="nav-item">
-                      <Link to="/" className="btn btn-main btn-effect login-btn">
-                        <i className="icon-user" />sign out
+                      <li onClick={this.signOut} className="nav-item">
+                        <Link to="/" className="btn btn-main btn-effect login-btn">
+                          <i className="icon-user" />sign out
                     </Link>
-                    </li> :
-                    <li className="nav-item">
-                      <Link to="/login" className="btn btn-main btn-effect login-btn">
-                        <i className="icon-user" />login
+                      </li> :
+                      <li className="nav-item">
+                        <Link to="/login" className="btn btn-main btn-effect login-btn">
+                          <i className="icon-user" />login
                     </Link>
-                    </li>
-                  }
+                      </li>
+                    }
                   </ul>
                   {/* ====== End of Extra Nav ====== */}
                 </div>

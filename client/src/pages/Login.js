@@ -49,7 +49,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                {this.state.isAuthenticated === true ? <Redirect to="/" /> :
+                {this.state.isAuthenticated === true ? <Redirect to="/watchlist" /> :
                     <div className="wrapper">
                         <main className="login-register-page" style={{ backgroundImage: 'url(assets/images/posters/movie-collection.jpg)' }}>
                             <div className="container">
