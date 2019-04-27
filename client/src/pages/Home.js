@@ -22,9 +22,6 @@ class Home extends Component {
             <div>
 
               <Nav /> <br></br><br></br>
-        {/* =============== START OF RESPONSIVE - MAIN NAV =============== */}
-        <nav id="main-mobile-nav" />
-        {/* =============== END OF RESPONSIVE - MAIN NAV =============== */}
         {/* =============== START OF WRAPPER =============== */}
         <div className="wrapper">
           <section id="slider" className="full-slider">
