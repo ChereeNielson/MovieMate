@@ -74,6 +74,7 @@ class FriendsList extends Component {
     API.removeFriend({data: removeFriend}).then(res => {
       console.log(res);
       this.loadFriends(this.state.UserId)
+      this.setState({userSearchedSomeone: false})
     });
   };
 
@@ -84,6 +85,7 @@ class FriendsList extends Component {
     };
     API.addFriend(newFriend).then(res => {
       this.loadFriends(this.state.UserId)
+      this.setState({userSearchedSomeone: false})
     });
   };
 
@@ -105,7 +107,7 @@ class FriendsList extends Component {
               <FriendsListItem
                 bio={this.state.results.bio}
                 image={this.state.results.profileImg}
-                name= {this.state.results.firstName + this.state.results.lastName}
+                name= {this.state.results.firstName + " " + this.state.results.lastName}
                 
                 addFriend={()=>this.addFriend(this.state.results.id)}
                 friends={true}
@@ -115,7 +117,7 @@ class FriendsList extends Component {
                 bio={this.state.results.bio}
                 image={this.state.results.profileImg}
                 name={
-                  this.state.results.firstName + this.state.results.lastName
+                  this.state.results.firstName + " " +this.state.results.lastName
                 }
                 unfriend={()=>this.unfriend(this.state.results.id)}
                 friends={false}
@@ -156,7 +158,7 @@ class FriendsList extends Component {
                 <FriendsListItem
                   bio={friend.bio}
                   image={friend.profileImg}
-                  name={friend.firstName + friend.lastName}
+                  name={friend.firstName + " " + friend.lastName}
                   friend={true}
                   unfriend={() => this.unfriend(friendData.FollowedId)}
                 />
