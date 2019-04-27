@@ -188,7 +188,7 @@ function Footer() {
                   </div>
                   {/* <br> */}
                   <div className="copyright ml-auto">
-                    <p align="center">Copyright ©</p>
+                    <p align="center">Copyright © 2019</p>
                   </div>
                 </div>
               </div>
