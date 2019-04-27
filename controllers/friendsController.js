@@ -12,7 +12,10 @@ module.exports = {
       ],
       where: { userId: req.params.id }
     })
-      .then(dbFriends => res.json(dbFriends))
+      .then(dbFriends => {
+        console.log(dbFriends)
+        return res.json(dbFriends)
+      })
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
@@ -22,8 +25,11 @@ module.exports = {
   },
 
   remove: function(req, res) {
-    db.Friends.destroy({ where: { UserId: req.params.id } })
+    console.log(req.body)
+    db.Friends.destroy({ where: { 
+      UserId: req.body.UserId,
+      FollowedId: req.body.FollowedId } })
       .then(dbFriends => res.json(dbFriends))
-      .catch(err => res.status(422).json(err));
+
   }
 };
