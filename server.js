@@ -6,6 +6,9 @@ const logger = require("morgan");
 const routes = require("./routes");
 const cors = require("cors");
 
+
+//using middlewhere acrossed the entire application before any route gets hit.
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

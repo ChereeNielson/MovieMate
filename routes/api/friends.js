@@ -8,7 +8,9 @@ router.route("/create").post(friendsController.create);
 router
   .route("/:id")
   .get(friendsController.findById)
-  .post(friendsController.create)
-  .delete(friendsController.remove);
+  .post(friendsController.create);
+
+router.route("/remove").delete(friendsController.remove);
+
 
 module.exports = router;
