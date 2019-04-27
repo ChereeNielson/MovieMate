@@ -23,11 +23,12 @@ export default {
     getFriends: function (id) {
         return axios.get("/api/friends/" + id);
     },
-    removeFriend: function (id) {
-        return axios.delete("/api/friends/" + id);
+    removeFriend: function (data) {
+        console.log(data)
+        return axios.delete("/api/friends/remove", data);
     },
-    addFriend: function (id) {
-        return axios.put("/api/friends/" + id);
+    addFriend: function (data) {
+        return axios.post("/api/friends/create", data);
     },
     searchForFriend: function (email) {
         return axios.get("/api/users/" + email);
