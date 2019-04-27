@@ -13,7 +13,7 @@ Have you ever watched a great movie, and you want to tell your friends about it 
 ---
 ### Your MovieMate Access
 
-Click here for your [MovieMate](https://bootcampmoviemate.herokuapp.com/) access.
+Click here to create your [MovieMate](https://bootcampmoviemate.herokuapp.com/) account and start sharing your favorite movies with your mates!
 
 ---
 ### APIs
